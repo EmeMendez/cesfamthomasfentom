@@ -15,7 +15,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'url'           =>  Str::slug($name),
         'excerpt'       =>  $faker->text(200),
         'body'          =>  $faker->text(800),
-        'image'         =>  $faker->imageUrl($with = 1200, $height = 400),
+        'image'         =>  'https://source.unsplash.com/random/1200x600',
         'status'        =>  $faker->randomElement(['PUBLISHED','DRAFT'])
        ];
 });

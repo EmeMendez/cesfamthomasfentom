@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Image::class, function (Faker $faker) {
     return [
-        'path'=>  $faker->imageUrl($with = 800, $height = 600),
+        'path'=> 'https://source.unsplash.com/random/800x600',
+
     ];
 });

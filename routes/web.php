@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','PostController@index')->name('posts.index');
+Route::get('/post/{url}','PostController@show')->name('posts.show');
+
+Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
+Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
+
+// Route::get('/home', 'HomeController@index')->name('home');
