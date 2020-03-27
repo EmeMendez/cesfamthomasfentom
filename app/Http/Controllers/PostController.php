@@ -76,6 +76,7 @@ class PostController extends Controller
      */    
     public function tag($url)
     {
+        $tag = Tag::where('url',$url)->first();
         $posts = Post::whereHas('tags',function($query) use($url){
 
                 $query->where('url',$url);
@@ -84,7 +85,7 @@ class PostController extends Controller
                  ->where('status','PUBLISHED')  
                  ->orderBy('id','DESC')
                  ->paginate(10);
-        return view('posts.tag',compact('posts'));       
+        return view('posts.tag',compact('posts','tag'));       
     }
 
     /**

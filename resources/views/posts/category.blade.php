@@ -1,4 +1,4 @@
 @extends('posts.layouts.list')
 @section('title')
-  <h1>post por categorías</h1>
+<h1>Post en la categoría : {{$category->name}}</h1>
 @endsection

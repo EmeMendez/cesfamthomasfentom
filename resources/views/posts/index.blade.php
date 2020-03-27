@@ -1,4 +1,4 @@
 @extends('posts.layouts.list')
 @section('title')
-  <h1>todos los posts</h1>
+  <h1>Lista de Post</h1>
 @endsection

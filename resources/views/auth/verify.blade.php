@@ -1,4 +1,4 @@
-@extends('layouts_backend_app')
+@extends('layouts_admin_app')
 
 @section('content')
 <div class="container">
