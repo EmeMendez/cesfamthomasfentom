@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Category;
 class CategoryController extends Controller
 {
     /**
@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories  = Category::get();
-        return view('categories.admin_index',compact('categories'));
+        return view('admin.category.index',compact('categories'));
     }
 
     /**

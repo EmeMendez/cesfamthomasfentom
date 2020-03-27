@@ -50,11 +50,14 @@
                             @endif
                         @else
                             <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.categories')}}">Categorías</a>
+                            <a class="nav-link" href="{{route('admin.categories.index')}}">Categorías</a>
                             </li>   
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.tags')}}">Etiquetas</a>
+                                <a class="nav-link" href="{{route('admin.tags.index')}}">Etiquetas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.posts.index')}}">Posts</a>
+                            </li>                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

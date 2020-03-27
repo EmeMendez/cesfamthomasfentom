@@ -22,17 +22,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/','PostController@index')->name('posts.index');
+Route::get('/admin','PostController@index');
 Route::get('/post/{url}','PostController@show')->name('posts.show');
 
 Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
 Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
 
-// Route::get('/hsome', 'HomeController@index')->name('home');
+Route::get('/hsome', 'HomeController@index')->name('home');
 
 
 //admin routes
 
-Route::resource('/admin/categorias','Admin\CategoryController');
-Route::resource('/admin/tags','Admin\TagController');
-Route::resource('/admin/posts','Admin\PostController');
+Route::resource('/admin/categories',   'Admin\CategoryController')->names('admin.categories');
+Route::resource('/admin/tags',         'Admin\TagController')->names('admin.tags');;
+Route::resource('/admin/posts',        'Admin\PostController')->names('admin.posts');;

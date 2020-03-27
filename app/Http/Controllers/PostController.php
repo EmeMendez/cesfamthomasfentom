@@ -85,7 +85,8 @@ class PostController extends Controller
                  ->where('status','PUBLISHED')  
                  ->orderBy('id','DESC')
                  ->paginate(10);
-        return view('posts.tag',compact('posts','tag'));       
+        // return view('posts.tag',compact('posts','tag')); 
+        return $posts;      
     }
 
     /**
