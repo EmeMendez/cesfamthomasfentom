@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Category;
 class CategoryController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories  = Category::get();
-        return view('admin.category.index',compact('categories'));
+        $categories  = Category::orderBy('id','DESC')->paginate(15);
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**

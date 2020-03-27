@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// App::setlocale('es');
 
-//admin site routes
+
 Auth::routes();
 
 
@@ -32,7 +33,6 @@ Route::get('/hsome', 'HomeController@index')->name('home');
 
 
 //admin routes
-
-Route::resource('/admin/categories',   'Admin\CategoryController')->names('admin.categories');
+Route::resource('/admin/categorias',   'Admin\CategoryController')->names('admin.categories');
 Route::resource('/admin/tags',         'Admin\TagController')->names('admin.tags');;
 Route::resource('/admin/posts',        'Admin\PostController')->names('admin.posts');;

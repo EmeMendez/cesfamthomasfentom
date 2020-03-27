@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 use App\Tag;
 class TagController extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +23,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::get();
-        return view('admin.tag.index',compact('tags'));
+        $tags = Tag::orderBy('id','DESC')->paginate(15);
+        return view('admin.tags.index',compact('tags'));
     }
 
     /**
