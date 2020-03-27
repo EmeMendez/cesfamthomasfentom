@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Admin | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-secondary" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -69,7 +69,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -82,6 +81,33 @@
         </nav>
 
         <main class="py-4">
+            {{-- start info message --}}
+            <div class="container">
+                <div class="col-10 mx-auto">
+                    @if(session('info'))
+                    <div class="alert alert-success px-4" role="alert">
+                        {{session('info')}}
+                      </div>                    
+                    @endif
+                </div>
+            </div>
+            {{-- end info message --}}
+
+            {{-- start error messages --}}
+            <div class="container">
+                <div class="col-10 mx-auto">
+                    @if(count($errors))
+                    <div class="alert alert-danger px-4" role="alert">
+                       <ul>
+                           @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                           @endforeach
+                       </ul>
+                      </div>                    
+                    @endif
+                </div>
+            </div>
+            {{-- end info message --}}
             @yield('content')
         </main>
     </div>
