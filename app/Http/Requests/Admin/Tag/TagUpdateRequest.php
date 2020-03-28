@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Admin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Rules\AlphaSpaces;
 class TagUpdateRequest extends FormRequest
 {
     /**
@@ -24,7 +24,7 @@ class TagUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:tags,name,'. $this->tag,
+            'name' => ['required','unique:tags,name,'. $this->tag, new AlphaSpaces],
         ];
     }
 }
