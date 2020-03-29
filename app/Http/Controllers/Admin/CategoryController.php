@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Http\Requests\Admin\Category\CategoryStoreRequest;
+use App\Http\Requests\Admin\Category\CategoryUpdateRequest;
+use Illuminate\Support\Str;
+
 class CategoryController extends Controller
 {
 
@@ -30,7 +34,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category;
+        return view('admin.categories.create',compact('category'));
     }
 
     /**
@@ -39,9 +44,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        //
+        $category = new Category;
+        $category->name = $request->get('name');
+        $category->url = Str::slug($request->get('name'));
+        $category->description = $request->get('description');
+        $category->save();
+        return redirect()->route('admin.categories.index')
+        ->with('info','Categoría "'. $category->name .'" creada con éxito');        
+
     }
 
     /**
@@ -52,7 +64,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.show',compact('category'));
     }
 
     /**
@@ -63,7 +76,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.edit',compact('category'));
     }
 
     /**
@@ -73,9 +87,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->update($request->validated());
+        return redirect()->route('admin.categories.index')
+               ->with('info','Categoría actualizada con éxito');
     }
 
     /**
@@ -86,6 +103,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        Category::find($id)->delete();
+        return redirect()->route('admin.categories.index')
+             ->with('info','Categoría "'.$category->name.'" eliminada con éxito');
     }
 }

@@ -1,9 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tag;
+
 class TagController extends Controller
 {
     /**
@@ -24,8 +23,6 @@ class TagController extends Controller
      */
     public function admin_index()
     {
-        $tags = Tag::get();
-        return view('tags.admin_index',compact('tags'));
     }
 
     /**

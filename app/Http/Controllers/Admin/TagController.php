@@ -105,7 +105,7 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
         Tag::find($id)->delete();
-        return back()->with('info','La etiqueta '.$tag->name. ' ha sido eliminada con éxito');
+        return back()->with('info','La etiqueta "'.$tag->name. '" ha sido eliminada con éxito');
 
     }
 }

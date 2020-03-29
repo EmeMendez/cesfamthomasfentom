@@ -4,8 +4,7 @@ namespace App\Http\Requests\Admin\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\AlphaSpaces;
-
-class CategoryStoreRequest extends FormRequest
+class CategoryUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +24,8 @@ class CategoryStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','unique:categories,name', new AlphaSpaces],
-            'description' => 'required',
+            'name' =>  ['required', new AlphaSpaces,'unique:categories,name,' . $this->category],
+            'description' => 'required'
         ];
     }
 }
