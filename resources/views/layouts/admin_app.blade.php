@@ -86,14 +86,14 @@
                 <div class="col-10 mx-auto">
                     @if(session('info'))
                     <div class="alert alert-success px-4" role="alert">
-                        {{session('info')}}
+                        {!! session('info') !!}
                       </div>                    
                     @endif
                 </div>
             </div>
             {{-- end info message --}}
 
-            {{-- start error messages --}}
+            {{-- start errors --}}
             <div class="container">
                 <div class="col-10 mx-auto">
                     @if(count($errors))
@@ -107,7 +107,7 @@
                     @endif
                 </div>
             </div>
-            {{-- end info message --}}
+            {{-- end errors --}}
             @yield('content')
         </main>
     </div>
