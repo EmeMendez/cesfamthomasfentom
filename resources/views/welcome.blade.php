@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/app.css">
-        <script src="/js/app.js"></script>
         <title>Cesfam Dr. Thomas Fenton</title>
 
         <!-- Fonts -->
@@ -85,7 +84,9 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+                <div id="app" class="content"><!--La equita id debe ser app, como hemos visto en app.js-->
+                    <example-component></example-component><!--Añadimos nuestro componente vuejs-->
+                </div>
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     
@@ -99,5 +100,7 @@
                 </div>
             </div>
         </div>
+        <script src="/js/app.js"></script>
+
     </body>
 </html>
