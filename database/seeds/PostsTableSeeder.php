@@ -21,14 +21,14 @@ class PostsTableSeeder extends Seeder
                 rand(6,14),
                 rand(15,20),
            ]);
-        })
-        ->each(function(Post $post){
-            $post->images()->attach([
-                 rand(1,299),
-                 rand(300,599),
-                 rand(600,900),
-            ]);
         });
+        // ->each(function(Post $post){
+        //     $post->images()->attach([
+        //          rand(1,299),
+        //          rand(300,599),
+        //          rand(600,900),
+        //     ]);
+        // });
     }
 }
 

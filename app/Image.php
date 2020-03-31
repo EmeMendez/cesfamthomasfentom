@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Post;
 class Image extends Model
 {
-    protected $fillable = ['image'];
+    protected $fillable = ['post_id','path'];
 
-    public function posts(){
-        return $this->belongsToMany(Post::class);
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 }

@@ -1,6 +1,21 @@
 
 @if($post->image)
-<img class="mb-4" src="/{{$post->image}}" height="300px" width="800" alt="">
+<a href="#modal_image" data-toggle="modal" data-target="#modal_image">
+  <img src="/{{$post->image}}" class="mb-4" width="800" height="400" alt="">
+</a>
+  <!-- Modal -->
+  <div class="modal fade col-12" id="modal_image" tabindex="-1" role="dialog" aria-labelledby="modal_imageTitle" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      
+      <div class="text-center mx-auto">
+          <img src="/{{$post->image}}" class="img-fluid rounded"  alt="">
+      </div>
+  </div>
+</div>
+{{-- modal --}}
 @else
 <div class="row align-items-center bg-light mb-4" style="height:300px">
   <div class="col-12 text-center text-secondary">
@@ -17,6 +32,8 @@
     </div>  
   </div>
 </div>
+
+
 
 <div class="form-group row">
     <label for="name" class="col-sm-2 col-form-label">Nombre del Post</label>
@@ -68,6 +85,7 @@
       </label>
     </div>
 
+
     <div class="form-check d-inline">
       <input 
             @if($post->status == 'DRAFT') 
@@ -112,6 +130,28 @@
   </div>
 </div> 
 
+<div class="form-group row">
+  <label for="images" class="col-sm-2 col-form-label">Galería</label>
+  <div class="col-sm-10">
+    <div class="form-group" id="images">
+    <input type="file" name="images[]" multiple class="form-control-file">
+    </div>  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="galery" class="col-sm-2 col-form-label">Galería</label>
+  <div class="col-sm-10">
+    <div class="form-group" id="galery">
+      
+      @foreach ($post->images as $img)
+      <img src="/{{$img->path}}" class="py-3" width="150" height="120" alt="">
+      @endforeach
+    </div>  
+  </div>
+</div>
+
+
 
 
 <div class="form-group row">
@@ -120,6 +160,7 @@
       <button class="btn {{$btn_type}}" id="btn" type="submit">{{$btn_text}}</button>
       </div>
 </div> 
+
 
 <script src="/ckeditor/ckeditor.js"></script>
 <script>

@@ -25,8 +25,7 @@
                     <div class="col-12 px-0">
                       <h3>Galería</h3>
                       @foreach($post->images as $image)
-                    <img class="mb-5" height="400" width="600" src="{{$image->path}}" alt="">
-                    
+                          <img class="mb-5" height="400" width="600" src="{{$image->path}}" alt="">
                       @endforeach
                   </div>                    
                   </div>
