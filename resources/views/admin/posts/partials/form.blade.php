@@ -122,11 +122,10 @@
 </div>
 
 
-
 <div class="form-group row">
   <label for="body" class="col-sm-2 col-form-label">Contenido</label>
   <div class="col-sm-10 id="content">
-    <textarea class="form-control" name="body" id="body" rows="4">{{old('body',$post->body)}}</textarea>    
+    <textarea class="form-control" name="body" id="body" rows="4">{!! old('body',$post->body) !!}</textarea>    
   </div>
 </div> 
 

@@ -29,7 +29,7 @@ Route::get('/post/{url}','PostController@show')->name('posts.show');
 Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
 Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
 
-Route::get('/hsome', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 //admin routes
