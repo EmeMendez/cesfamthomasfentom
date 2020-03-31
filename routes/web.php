@@ -33,6 +33,14 @@ Route::get('/hsome', 'HomeController@index')->name('home');
 
 
 //admin routes
-Route::resource('/admin/categorias',   'Admin\CategoryController')->names('admin.categories')->parameters(['categorias' => 'category']);
-Route::resource('/admin/etiquetas',         'Admin\TagController')->names('admin.tags')->parameters(['etiquetas' => 'tag']);;
-Route::resource('/admin/posts',        'Admin\PostController')->names('admin.posts');
+Route::namespace('Admin')->group(function () {
+    Route::name('admin.')->group(function () {
+        Route::prefix('admin')->group(function () {
+                Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
+                Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
+                Route::resource('posts',        'PostController')->names('posts');
+        });
+    });
+});
+
+
