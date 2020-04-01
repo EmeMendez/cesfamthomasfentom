@@ -1,37 +1,15 @@
+<div id="post_image">
+    <image-post-component></image-post-component>
+</div>
+
 
 @if($post->image)
-<a href="#modal_image" data-toggle="modal" data-target="#modal_image">
-  <img src="/{{$post->image}}" class="mb-4" width="800" height="400" alt="">
-</a>
-  <!-- Modal -->
-  <div class="modal fade col-12" id="modal_image" tabindex="-1" role="dialog" aria-labelledby="modal_imageTitle" aria-hidden="true">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      
-      <div class="text-center mx-auto">
-          <img src="/{{$post->image}}" class="img-fluid rounded"  alt="">
-      </div>
-  </div>
-</div>
-{{-- modal --}}
+<image-post-component></image-post-component>
 @else
-<div class="row align-items-center bg-light mb-4" style="height:300px">
-  <div class="col-12 text-center text-secondary">
-    IMAGEN PRINCIPAL DEL POST
-  </div>
-</div>
+
 @endif
 
-<div class="form-group row">
-  <label for="image" class="col-sm-2 col-form-label">Imágen Principal</label>
-  <div class="col-sm-10">
-    <div class="form-group" id="image">
-    <input type="file" name="image" class="form-control-file">
-    </div>  
-  </div>
-</div>
+
 
 
 
@@ -160,6 +138,10 @@
       </div>
 </div> 
 
+
+<div id="post_images">
+  <images-post-component></images-post-component>
+</div>
 
 <script src="/ckeditor/ckeditor.js"></script>
 <script>

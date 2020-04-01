@@ -38,9 +38,12 @@ Route::namespace('Admin')->group(function () {
         Route::prefix('admin')->group(function () {
                 Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
                 Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
-                Route::resource('posts',        'PostController')->names('posts');
+                Route::resource('posts',        'PostController')->names('posts');               
         });
     });
 });
 
+// api vue routes
+Route::get('posts/{post}/image','Admin\PostController@image');
+Route::get('posts/{post}/images','Admin\PostController@images');
 
