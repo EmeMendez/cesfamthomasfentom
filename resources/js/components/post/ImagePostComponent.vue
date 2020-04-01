@@ -2,7 +2,7 @@
         <div>
             <div v-if="!empty">
             <a href="#modal_image" data-toggle="modal" data-target="#modal_image">
-                <img   :src="imagensita" class="mb-4" width="800" height="400" alt="">
+                <img   :src="image_path" class="mb-4" width="800" height="400" alt="">
             </a>
 
             <!-- Modal -->
@@ -12,7 +12,7 @@
                 </button>
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">  
                     <div class="text-center mx-auto">
-                        <img :src="imagensita" class="img-fluid rounded"  alt="">
+                        <img :src="image_path" class="img-fluid rounded"  alt="">
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <label for="image" class="col-sm-2 col-form-label">Imágen Principal</label>
                 <div class="col-sm-10">
                     <div class="form-group" id="image">
-                        <input @change="getImagen" accept=".png, .jpeg, .jpg" type="file" name="image" class="form-control-file">
+                        <input @change="getImage" accept=".png, .jpeg, .jpg" type="file" name="image" class="form-control-file">
                     </div>  
                 </div>
             </div>
@@ -42,46 +42,46 @@
     export default {
         data(){
             return {
-                imagenMiniatura: '' ,
+                image_url: '' ,
                 imagen: '',
                 empty: false               
             }
         },
         mounted(){
-              this.getImagenUpdate();   
+              this.getPostImage();   
         },
         methods:{
-            getImagenUpdate(){
+            getPostImage(){
                 var regex = /\d+/g;
                 var url = window.location.pathname
                 try{
                 var id = url.match(regex);
-                console.log(id[0]);
                 axios.get('/posts/'+id[0]+'/image').then(res =>{
-                    this.imagenMiniatura = '/' + res.data 
+                    this.image_url = '/' + res.data 
                 });
                 }catch(error){
                     //means the route is create
                     this.empty = true;
                 }
             },
-            getImagen(e){
+            getImage(e){
                 let file = e.target.files[0]; 
                 this.imagen = file;
-                this.cargarImagen(file);
+                this.loadImage(file);
                 },
-            cargarImagen(file){
+            loadImage(file){
                 let reader = new FileReader();
                 reader.onload = (e) =>{
-                    this.imagenMiniatura = e.target.result;
+                    this.image_url = e.target.result;
+
                 }
                 reader.readAsDataURL(file); 
                 this.empty = false; 
             }
         },
         computed:{
-            imagensita(){
-                return this.imagenMiniatura;
+            image_path(){
+                return this.image_url;
             }
         }                
     }

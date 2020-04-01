@@ -2,17 +2,6 @@
     <image-post-component></image-post-component>
 </div>
 
-
-@if($post->image)
-<image-post-component></image-post-component>
-@else
-
-@endif
-
-
-
-
-
 <div class="form-group row">
     <label for="name" class="col-sm-2 col-form-label">Nombre del Post</label>
     <div class="col-sm-10">
@@ -107,29 +96,9 @@
   </div>
 </div> 
 
-<div class="form-group row">
-  <label for="images" class="col-sm-2 col-form-label">Galería</label>
-  <div class="col-sm-10">
-    <div class="form-group" id="images">
-    <input type="file" name="images[]" multiple class="form-control-file">
-    </div>  
-  </div>
+<div id="post_images">
+  <images-post-component></images-post-component>
 </div>
-
-<div class="form-group row">
-  <label for="galery" class="col-sm-2 col-form-label">Galería</label>
-  <div class="col-sm-10">
-    <div class="form-group" id="galery">
-      
-      @foreach ($post->images as $img)
-      <img src="/{{$img->path}}" class="py-3" width="150" height="120" alt="">
-      @endforeach
-    </div>  
-  </div>
-</div>
-
-
-
 
 <div class="form-group row">
       <label for="btn" class="col-sm-2 col-form-label">&nbsp;</label>
@@ -139,9 +108,7 @@
 </div> 
 
 
-<div id="post_images">
-  <images-post-component></images-post-component>
-</div>
+
 
 <script src="/ckeditor/ckeditor.js"></script>
 <script>

@@ -1984,16 +1984,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      imagenMiniatura: '',
+      image_url: '',
       imagen: '',
       empty: false
     };
   },
   mounted: function mounted() {
-    this.getImagenUpdate();
+    this.getPostImage();
   },
   methods: {
-    getImagenUpdate: function getImagenUpdate() {
+    getPostImage: function getPostImage() {
       var _this = this;
 
       var regex = /\d+/g;
@@ -2001,27 +2001,26 @@ __webpack_require__.r(__webpack_exports__);
 
       try {
         var id = url.match(regex);
-        console.log(id[0]);
         axios.get('/posts/' + id[0] + '/image').then(function (res) {
-          _this.imagenMiniatura = '/' + res.data;
+          _this.image_url = '/' + res.data;
         });
       } catch (error) {
         //means the route is create
         this.empty = true;
       }
     },
-    getImagen: function getImagen(e) {
+    getImage: function getImage(e) {
       var file = e.target.files[0];
       this.imagen = file;
-      this.cargarImagen(file);
+      this.loadImage(file);
     },
-    cargarImagen: function cargarImagen(file) {
+    loadImage: function loadImage(file) {
       var _this2 = this;
 
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this2.imagenMiniatura = e.target.result;
+        _this2.image_url = e.target.result;
       };
 
       reader.readAsDataURL(file);
@@ -2029,8 +2028,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    imagensita: function imagensita() {
-      return this.imagenMiniatura;
+    image_path: function image_path() {
+      return this.image_url;
     }
   }
 });
@@ -2046,6 +2045,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2054,9 +2080,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      post_images: [],
+      temporal_images: [],
+      imagen: '',
+      empty: false
+    };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.getPostImage();
+  },
+  methods: {
+    getPostImage: function getPostImage() {
+      var _this = this;
+
+      var regex = /\d+/g;
+      var url = window.location.pathname;
+
+      try {
+        var id = url.match(regex);
+        axios.get('/posts/' + id[0] + '/images').then(function (res) {
+          _this.post_images = res.data;
+        });
+      } catch (error) {
+        //means the route is create
+        this.empty = true;
+      }
+    },
+    loadImages: function loadImages() {
+      var files = document.getElementById("images_post").files;
+      this.temporal_images = [];
+
+      var _iterator = _createForOfIteratorHelper(files),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var file = _step.value;
+          var img = new Image();
+          img.src = URL.createObjectURL(file);
+          img.title = file.name;
+          this.temporal_images.push(img.src);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+  },
+  computed: {
+    images_path: function images_path() {
+      return this.temporal_images;
+    }
+  }
 });
 
 /***/ }),
@@ -37494,7 +37571,7 @@ var render = function() {
               _c("img", {
                 staticClass: "mb-4",
                 attrs: {
-                  src: _vm.imagensita,
+                  src: _vm.image_path,
                   width: "800",
                   height: "400",
                   alt: ""
@@ -37528,7 +37605,7 @@ var render = function() {
                   _c("div", { staticClass: "text-center mx-auto" }, [
                     _c("img", {
                       staticClass: "img-fluid rounded",
-                      attrs: { src: _vm.imagensita, alt: "" }
+                      attrs: { src: _vm.image_path, alt: "" }
                     })
                   ])
                 ]
@@ -37552,7 +37629,7 @@ var render = function() {
           _c("input", {
             staticClass: "form-control-file",
             attrs: { accept: ".png, .jpeg, .jpg", type: "file", name: "image" },
-            on: { change: _vm.getImagen }
+            on: { change: _vm.getImage }
           })
         ])
       ])
@@ -37616,16 +37693,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "images" } },
+        [_vm._v("Galería")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("div", { staticClass: "form-group", attrs: { id: "images" } }, [
+          _c("input", {
+            staticClass: "form-control-file",
+            attrs: {
+              type: "file",
+              name: "images[]",
+              id: "images_post",
+              multiple: ""
+            },
+            on: { change: _vm.loadImages }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "galery" } },
+        [_vm._v("Galería")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c(
+          "div",
+          { staticClass: "form-group", attrs: { id: "galery" } },
+          [
+            _vm._l(_vm.post_images, function(image, index) {
+              return _c("img", {
+                key: "img" + index,
+                staticClass: "py-3 mr-2",
+                attrs: {
+                  src: "/" + image.path,
+                  width: "150",
+                  height: "120",
+                  alt: ""
+                }
+              })
+            }),
+            _vm._v(" "),
+            _vm._l(_vm.images_path, function(temporal_image, index_temporal) {
+              return _c("img", {
+                key: "ti" + index_temporal,
+                staticClass: "py-3 mr-2",
+                attrs: {
+                  src: temporal_image,
+                  width: "150",
+                  height: "120",
+                  alt: ""
+                }
+              })
+            })
+          ],
+          2
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Galery post component")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
