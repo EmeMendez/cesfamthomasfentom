@@ -44,7 +44,7 @@
                 var url = window.location.pathname
                 try{
                 var id = url.match(regex);
-                axios.get('/posts/'+id[0]+'/images').then(res =>{
+                axios.get('/admin/posts/'+id[0]+'/images').then(res =>{
                     this.post_images = res.data 
                 });
                 }catch(error){

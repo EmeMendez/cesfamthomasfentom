@@ -2001,7 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 
       try {
         var id = url.match(regex);
-        axios.get('/posts/' + id[0] + '/image').then(function (res) {
+        axios.get('/admin/posts/' + id[0] + '/image').then(function (res) {
           _this.image_url = '/' + res.data;
         });
       } catch (error) {
@@ -2099,7 +2099,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       try {
         var id = url.match(regex);
-        axios.get('/posts/' + id[0] + '/images').then(function (res) {
+        axios.get('/admin/posts/' + id[0] + '/images').then(function (res) {
           _this.post_images = res.data;
         });
       } catch (error) {

@@ -44,6 +44,6 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
         $request->session()->invalidate();
-        return $this->loggedOut($request) ?: redirect('/login');
+        return $this->loggedOut($request) ?: redirect('admin/login');
     }
 }

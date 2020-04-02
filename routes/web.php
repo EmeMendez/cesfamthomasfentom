@@ -19,37 +19,48 @@ Route::get('/', function () {
 
 // App::setlocale('es');
 
-
-Auth::routes();
-
-
-Route::get('/admin','PostController@index');
-Route::get('/post/{url}','PostController@show')->name('posts.show');
-
-Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
-Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 //admin routes
+
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('/',function(){
+        return redirect('admin/home');
+    });    
+    Route::get('/home', 'HomeController@index')->name('home');
+    Auth::routes();
+});
+
+
 Route::middleware(['auth'])->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::name('admin.')->group(function () {
             Route::prefix('admin')->group(function () {
                     Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
                     Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
-                    Route::resource('posts',        'PostController')->names('posts');
                     Route::resource('usuarios' ,    'UserController')->names('users')->parameters(['usuarios' => 'user']);              
-            });
+                    Route::resource('posts',        'PostController')->names('posts');                                
+                    Route::get('posts/{post}/image','PostController@image');/*vue*/
+                    Route::get('posts/{post}/images','PostController@images');/*vue*/
+                });
         });
     });
 });
 
 
 
-// api vue routes
-Route::get('posts/{post}/image','Admin\PostController@image');
-Route::get('posts/{post}/images','Admin\PostController@images');
+// Route::get('/post/{url}','PostController@show')->name('posts.show');
+
+// Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
+// Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
+
+
+
+
+
+
+
+
+
+
 
