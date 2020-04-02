@@ -32,16 +32,22 @@ Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
 //admin routes
-Route::namespace('Admin')->group(function () {
-    Route::name('admin.')->group(function () {
-        Route::prefix('admin')->group(function () {
-                Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
-                Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
-                Route::resource('posts',        'PostController')->names('posts');               
+Route::middleware(['auth'])->group(function () {
+    Route::namespace('Admin')->group(function () {
+        Route::name('admin.')->group(function () {
+            Route::prefix('admin')->group(function () {
+                    Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
+                    Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
+                    Route::resource('posts',        'PostController')->names('posts');
+                    Route::resource('usuarios' ,    'UserController')->names('users')->parameters(['usuarios' => 'user']);              
+            });
         });
     });
 });
+
+
 
 // api vue routes
 Route::get('posts/{post}/image','Admin\PostController@image');
