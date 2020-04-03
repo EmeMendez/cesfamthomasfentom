@@ -2078,6 +2078,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2096,6 +2099,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       var regex = /\d+/g;
       var url = window.location.pathname;
+      console.log(url);
 
       try {
         var id = url.match(regex);
@@ -37729,18 +37733,38 @@ var render = function() {
           "div",
           { staticClass: "form-group", attrs: { id: "galery" } },
           [
-            _vm._l(_vm.post_images, function(image, index) {
-              return _c("img", {
-                key: "img" + index,
-                staticClass: "py-3 mr-2",
-                attrs: {
-                  src: "/" + image.path,
-                  width: "150",
-                  height: "120",
-                  alt: ""
-                }
-              })
-            }),
+            _vm.post_images.length > 0
+              ? _c(
+                  "div",
+                  [
+                    _vm._l(_vm.post_images, function(image, index) {
+                      return _c("img", {
+                        key: "img" + index,
+                        staticClass: "py-3 mr-2",
+                        attrs: {
+                          src: "/" + image.path,
+                          width: "150",
+                          height: "120",
+                          alt: ""
+                        }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c(
+                      "a",
+                      { attrs: { href: "/admin/images/301/edit" } },
+                      [
+                        _c("buttom", { staticClass: "btn btn-dark" }, [
+                          _vm._v("Administrar imágenes")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  2
+                )
+              : _vm._e(),
             _vm._v(" "),
             _vm._l(_vm.images_path, function(temporal_image, index_temporal) {
               return _c("img", {

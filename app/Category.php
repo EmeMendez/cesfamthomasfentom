@@ -11,4 +11,9 @@ class Category extends Model
     public function posts(){
         return $this->hasToMany(Post::class);// a category has many posts
     }
+
+    public function scopeName($query,$name){
+        if($name)
+            return $query->where('name','LIKE',"%$name%");
+    }
 }

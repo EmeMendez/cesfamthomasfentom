@@ -14,9 +14,12 @@
             <div class="col-sm-10">
                 <div class="form-group" id="galery">
                 
-                         
-                    <img v-for="(image, index) in post_images" :key="'img'+ index" :src="'/'+ image.path" class="py-3 mr-2" width="150" height="120" alt="">
-                    
+                    <div v-if="post_images.length>0">
+                        <img v-for="(image, index) in post_images" :key="'img'+ index" :src="'/'+ image.path" class="py-3 mr-2" width="150" height="120" alt="">
+                        <br><a href="/admin/images/301/edit"><buttom class="btn btn-dark">Administrar imágenes</buttom></a>                       
+                    </div>     
+
+
                     <img v-for="(temporal_image, index_temporal) in images_path" :key="'ti'+ index_temporal" :src="temporal_image" class="py-3 mr-2" width="150" height="120" alt=""> 
 
                 </div>  
@@ -42,6 +45,7 @@
             getPostImage(){
                 var regex = /\d+/g;
                 var url = window.location.pathname
+                console.log(url);
                 try{
                 var id = url.match(regex);
                 axios.get('/admin/posts/'+id[0]+'/images').then(res =>{

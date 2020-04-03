@@ -21,10 +21,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts  = Post::orderBy('id','DESC')->paginate(15);
-        return view('admin.posts.index',compact('posts'));
+        $name       = $request->get("name");
+        $status     = $request->get("status");
+        $category   = $request->get("category");
+
+        $categories = Category::orderBy('name','ASC')->get();
+        $posts      = Post::orderBy('id','DESC')
+                           ->name($name) 
+                           ->status($status) 
+                           ->category($category)
+                           ->paginate(15);   
+        
+        return view('admin.posts.index',compact('posts','categories','name','status','category'));
     }
 
     /**
@@ -34,10 +44,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        $post = new Post;
+        $post           = new Post;
         $post->category = new Category;
-        $categories = Category::orderBy('name','ASC')->get();
-        $tags = Tag::orderBy('name','ASC')->get();        
+        $categories     = Category::orderBy('name','ASC')->get();
+        $tags           = Tag::orderBy('name','ASC')->get();    
+
         return view('admin.posts.create',compact('post','categories','tags'));
     }
 

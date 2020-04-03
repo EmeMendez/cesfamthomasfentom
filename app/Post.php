@@ -14,6 +14,7 @@ class Post extends Model
         'user_id','category_id','name','excerpt','body','image'
     ];
 
+    //relations 
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -27,4 +28,22 @@ class Post extends Model
     public function images(){
         return $this->hasMany(Image::class);
     }
+
+    //scopes
+    public function scopeName($query,$name){
+        if($name)
+            return $query->where('name','LIKE', "%$name%");
+    }
+
+    public function scopeStatus($query, $status){
+        if($status)
+            return $query->where('status',$status);
+    }
+
+    public function scopeCategory($query,$category){
+        if($category){
+            return $query->where('category_id',$category);
+        }
+    }
+
 }

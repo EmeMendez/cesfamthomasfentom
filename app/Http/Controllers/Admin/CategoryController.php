@@ -19,10 +19,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories  = Category::orderBy('id','DESC')->paginate(15);
-        return view('admin.categories.index',compact('categories'));
+        $name = $request->get("name");
+        $categories  = Category::orderBy('id','DESC')
+                       ->name($name)
+                        ->paginate(15);
+        return view('admin.categories.index',compact('categories','name'));
     }
 
     /**

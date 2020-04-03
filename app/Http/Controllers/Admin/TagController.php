@@ -18,10 +18,14 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tags = Tag::orderBy('id','DESC')->paginate(15);
-        return view('admin.tags.index',compact('tags'));
+        $name = $request->get("name");
+        $tags = Tag::orderBy('id','DESC')
+                ->name($name)  
+                ->paginate(15);   
+        
+        return view('admin.tags.index',compact('tags','name'));
     }
 
     /**
@@ -31,7 +35,6 @@ class TagController extends Controller
      */
     public function create()
     {
-
         $tag = new Tag;
         return view('admin.tags.create',compact('tag'));
     }
