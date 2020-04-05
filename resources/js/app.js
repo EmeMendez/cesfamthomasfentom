@@ -20,8 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('image-post-component', require('./components/post/ImagePostComponent.vue').default);
-Vue.component('images-post-component', require('./components/post/ImagesPostComponent.vue').default);
+var image   = Vue.component('image-post-component', require('./components/post/ImagePostComponent.vue').default);
+var images  = Vue.component('images-post-component', require('./components/post/ImagesPostComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,15 +31,12 @@ Vue.component('images-post-component', require('./components/post/ImagesPostComp
 
 const app = new Vue({
     el: '#app',
+    components:{
+        'image-post-component' : image,
+        'images-post-component' : images,
+    }
     
 });
 
 
-const post_image = new Vue({
-    el: '#post_image',
-});
-
-const post_images = new Vue({
-    el: '#post_images',
-});
 

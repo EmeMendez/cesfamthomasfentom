@@ -49975,8 +49975,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('image-post-component', __webpack_require__(/*! ./components/post/ImagePostComponent.vue */ "./resources/js/components/post/ImagePostComponent.vue")["default"]);
-Vue.component('images-post-component', __webpack_require__(/*! ./components/post/ImagesPostComponent.vue */ "./resources/js/components/post/ImagesPostComponent.vue")["default"]);
+var image = Vue.component('image-post-component', __webpack_require__(/*! ./components/post/ImagePostComponent.vue */ "./resources/js/components/post/ImagePostComponent.vue")["default"]);
+var images = Vue.component('images-post-component', __webpack_require__(/*! ./components/post/ImagesPostComponent.vue */ "./resources/js/components/post/ImagesPostComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49984,13 +49984,11 @@ Vue.component('images-post-component', __webpack_require__(/*! ./components/post
  */
 
 var app = new Vue({
-  el: '#app'
-});
-var post_image = new Vue({
-  el: '#post_image'
-});
-var post_images = new Vue({
-  el: '#post_images'
+  el: '#app',
+  components: {
+    'image-post-component': image,
+    'images-post-component': images
+  }
 });
 
 /***/ }),
