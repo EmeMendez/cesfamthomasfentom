@@ -83,7 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <div class="py-4">
             {{-- start info message --}}
             <div class="container">
                 <div class="col-10 mx-auto">
@@ -111,9 +111,28 @@
                 </div>
             </div>
             {{-- end errors --}}
-        </main>
-
+        </div>
+        <div id="app">
+            @yield('content')
+        
+        </div>
     </div>
 </body>
 </html>
-@yield('content')
+
+
+
+
+
+<script src="{{ asset('js/app.js') }}"></script>
+<script  src="/ckeditor/ckeditor.js"></script>
+<script>
+ try{
+  if(document.getElementById('body').value!=null) {
+  CKEDITOR.config.height = 400;
+  CKEDITOR.replace("body");
+  }
+}catch(err){
+    //can't find element with id "body"
+}
+</script>

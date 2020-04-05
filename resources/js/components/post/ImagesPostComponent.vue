@@ -16,7 +16,7 @@
                 
                     <div v-if="post_images.length>0">
                         <img v-for="(image, index) in post_images" :key="'img'+ index" :src="'/'+ image.path" class="py-3 mr-2" width="150" height="120" alt="">
-                        <br><a href="/admin/images/301/edit"><buttom class="btn btn-dark">Administrar imágenes</buttom></a>                       
+                        <br><a href="/admin/images/301/edit"><button class="btn btn-dark">Administrar imágenes</button></a>                       
                     </div>     
 
 

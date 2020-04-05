@@ -2,7 +2,9 @@
         <div>
             <div v-if="!empty">
             <a href="#modal_image" data-toggle="modal" data-target="#modal_image">
-                <img   :src="image_path" class="mb-4" width="800" height="400" alt="">
+                <div class="col-12">
+                    <img   :src="image_path" class="mb-4" style=" width: 100%;height: auto%"   alt="">
+                </div>
             </a>
 
             <!-- Modal -->
@@ -88,3 +90,4 @@
 
     
 </script>
+

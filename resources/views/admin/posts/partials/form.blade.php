@@ -1,5 +1,5 @@
 
-<div id="app">
+<div>
 
     <image-post-component></image-post-component>
 
@@ -111,11 +111,6 @@
  
 
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
-<script  src="/ckeditor/ckeditor.js"></script>
-<script>
-  CKEDITOR.config.height = 400;
-  CKEDITOR.replace("body");
-</script>
+
 
 

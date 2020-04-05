@@ -65,9 +65,15 @@
                             <tr>
                               <td scope="col">{{$tag->id}}</td>
                               <td scope="col">{{$tag->name}}</td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-dark">Ver</button></td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-info">Editar</button></td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                              <td scope="col"><a href="{{route('admin.tags.show',$tag->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
+                              <td scope="col"><a href="{{route('admin.tags.edit',$tag->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
+
+                              <td scope="col">
+                                <form action="{{route('admin.tags.destroy',$tag->id)}}" method="POST">
+                                  @csrf
+                                  @method('DELETE')                                
+                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Eliminar">
+                              </form>    
                               </td>
 
                             </tr>

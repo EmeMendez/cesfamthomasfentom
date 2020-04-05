@@ -1,17 +1,18 @@
+
 @extends('layouts.admin_app')
+
 @section('content')
-<div class="container">
-    <div class="col-10 mx-auto">
-        <div class="card px-5">
-            <div class="card-body pl-2">
-            <p class="h4 mb-0 text-secondary font-weight-bold">Post</p>
-            </div>
-            <div class="row">
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header"><h4 class="text-secondary mb-0">Post</h4></div>
+
+                <div class="card-body">
+                <div class="col-12 px-0 text-secondary">
                 <a href="#modal_image" data-toggle="modal" data-target="#modal_image">
-                    <img src="/{{$post->image}}" class="px-4 pb-3 pt-1" width="800" height="400" alt="">
-                </a>
-                
-                <div class="col-12 ml-2 text-secondary">
+                    <img src="/{{$post->image}}" class="img-fluid mb-4"  alt="">
+                </a>                    
                 <p><b>Nombre :</b> {{$post->name}}</p> 
                 <p><b>URL :</b> {{$post->url}}</p>           
                 <p><b>Usuario :</b> {{$post->user->name}}</p> 
@@ -28,15 +29,14 @@
                                  
                 <p class="h4"><b>Galería Post</p> 
                 @foreach ($post->images as $img)
-                <img src="/{{$img->path}}" class="py-3" width="600" height="400" alt=""><br>
+                <img src="/{{$img->path}}" class="py-3" height="120" width="150"  alt=""><br>
                 @endforeach
+                </div>              
+                    </div>                
                 </div>
-
-            </div>
         </div>
-    </div>     
+    </div>
 </div>
-
 
   
   <!-- Modal -->

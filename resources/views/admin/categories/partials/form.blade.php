@@ -1,12 +1,12 @@
 <div class="form-group row">
     <label for="inputnamel" class="col-sm-2 col-form-label">Nombre</label>
-    <div class="col-sm-10">
+    <div class="col-sm-10 px-0">
       <input type="text" name="name" class="form-control" id="inputname" value="{{old('name',$category->name)}}">
     </div>
 </div>
 <div class="form-group row">
   <label for="textarea" class="col-sm-2 col-form-label">Descripción</label>
-  <div class="col-sm-10">
+  <div class="col-sm-10 px-0">
     <textarea class="form-control" name="description" id="textarea" rows="4">{{old('description',$category->description)}}</textarea>    
   </div>
 </div> 

@@ -62,9 +62,15 @@
                             <tr>
                               <td scope="col">{{$category->id}}</td>
                               <td scope="col">{{$category->name}}</td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-dark">Ver</button></td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-info">Editar</button></td>
-                              <td scope="col"><button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                              <td scope="col"><a href="{{route('admin.categories.show',$category->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
+                              <td scope="col"><a href="{{route('admin.categories.edit',$category->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
+
+                              <td scope="col">
+                                <form action="{{route('admin.categories.destroy',$category->id)}}" method="POST">
+                                  @csrf
+                                  @method('DELETE')                                
+                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Eliminar">
+                              </form>    
                               </td>
 
                             </tr>

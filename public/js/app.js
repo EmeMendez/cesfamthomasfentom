@@ -1981,6 +1981,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37572,15 +37574,13 @@ var render = function() {
               }
             },
             [
-              _c("img", {
-                staticClass: "mb-4",
-                attrs: {
-                  src: _vm.image_path,
-                  width: "800",
-                  height: "400",
-                  alt: ""
-                }
-              })
+              _c("div", { staticClass: "col-12" }, [
+                _c("img", {
+                  staticClass: "mb-4",
+                  staticStyle: { width: "100%", height: "auto%" },
+                  attrs: { src: _vm.image_path, alt: "" }
+                })
+              ])
             ]
           ),
           _vm._v(" "),
@@ -37751,16 +37751,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("br"),
-                    _c(
-                      "a",
-                      { attrs: { href: "/admin/images/301/edit" } },
-                      [
-                        _c("buttom", { staticClass: "btn btn-dark" }, [
-                          _vm._v("Administrar imágenes")
-                        ])
-                      ],
-                      1
-                    )
+                    _vm._m(0)
                   ],
                   2
                 )
@@ -37785,7 +37776,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "/admin/images/301/edit" } }, [
+      _c("button", { staticClass: "btn btn-dark" }, [
+        _vm._v("Administrar imágenes")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

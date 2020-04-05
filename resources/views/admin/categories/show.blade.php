@@ -1,20 +1,21 @@
 @extends('layouts.admin_app')
-@section('content')
-<div class="container">
-    <div class="col-10 mx-auto">
-        <div class="card px-5">
-            <div class="card-body pl-2">
-            <p class="lead mb-0 text-secondary">Categoría</p>
-            </div>
-            <div class="row">
-                <div class="col-12 ml-2 text-secondary">
-                <p>Nombre : <b>{{$category->name}}</b></p> 
-                <p>Descripción : <b>{{$category->description}}</b></p>           
-                <p>URL : <b>{{$category->url}}</b></p>           
-                </div>
 
+@section('content')
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header"><h4 class="text-secondary mb-0">Categoría</h4></div>
+
+                <div class="card-body">
+                    <div class="col-12">
+                        <p><b>Nombre :</b> {{$category->name}}</p> 
+                        <p><b>Descripción :</b> {{$category->description}}</p>           
+                        <p><b>URL : </b> {{$category->url}}</p>                  
+                    </div>               
+                </div>
             </div>
         </div>
-    </div>     
+    </div>
 </div>
 @endsection
