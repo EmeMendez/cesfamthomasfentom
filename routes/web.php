@@ -28,11 +28,12 @@ Route::prefix('admin')->group(function(){
         return redirect('admin/home');
     });    
     Route::get('/home', 'HomeController@index')->name('home');
-    Auth::routes();
+    Auth::routes(['verify' => true]);
+
 });
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::name('admin.')->group(function () {
             Route::prefix('admin')->group(function () {
