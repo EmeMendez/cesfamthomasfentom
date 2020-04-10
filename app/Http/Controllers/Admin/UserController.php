@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 use App\User;
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('permission:admin.users.index')->only('index');
+        $this->middleware('permission:admin.users.show')->only('show');
+        $this->middleware('permission:admin.users.create')->only('create','store');
+        $this->middleware('permission:admin.users.edit')->only('edit','update');
+        $this->middleware('permission:admin.users.destroy')->only('destroy');
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *

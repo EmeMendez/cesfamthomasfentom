@@ -11,7 +11,14 @@ use App\Tag;
 class TagController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('permission:admin.tags.index')->only('index');
+        $this->middleware('permission:admin.tags.show')->only('show');
+        $this->middleware('permission:admin.tags.create')->only('create','store');
+        $this->middleware('permission:admin.tags.edit')->only('edit','update');
+        $this->middleware('permission:admin.tags.destroy')->only('destroy');
 
+    }
 
     /**
      * Display a listing of the resource.

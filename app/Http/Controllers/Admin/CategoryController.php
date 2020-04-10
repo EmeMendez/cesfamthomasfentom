@@ -12,7 +12,14 @@ use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('permission:admin.categories.index')->only('index');
+        $this->middleware('permission:admin.categories.show')->only('show');
+        $this->middleware('permission:admin.categories.create')->only('create','store');
+        $this->middleware('permission:admin.categories.edit')->only('edit','update');
+        $this->middleware('permission:admin.categories.destroy')->only('destroy');
 
+    }
 
     /**
      * Display a listing of the resource.

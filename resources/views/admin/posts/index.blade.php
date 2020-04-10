@@ -80,7 +80,9 @@
                               <th scope="col">Estado</th>                   
                               <th scope="col">&nbsp</th>
                               <th scope="col">&nbsp</th>
+                              @can('admin.posts.destroy')
                               <th scope="col">&nbsp</th>
+                              @endcan
                             </tr>
                           </thead>
                           <tbody class="text-secondary">
@@ -91,7 +93,8 @@
                               <td scope="col">@if($post->status == 'DRAFT') <span class="text-dark">Borrador<span> @else <span class="text-success">Publicado<span> @endif</td>
                               <td scope="col"><a href="{{route('admin.posts.show',$post->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
                               <td scope="col"><a href="{{route('admin.posts.edit',$post->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
-
+                              
+                              @can('admin.posts.destroy')
                               <td scope="col">
                                 <form action="{{route('admin.posts.destroy',$post->id)}}" method="POST">
                                   @csrf
@@ -99,6 +102,7 @@
                                 <input type="submit" class="btn btn-sm btn-outline-danger" value="Eliminar">
                                 </form>
                               </td>
+                              @endcan
                             </tr>
                           @endforeach
                           </tbody>
