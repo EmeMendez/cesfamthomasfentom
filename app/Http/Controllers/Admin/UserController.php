@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Admin\User\UserStoreRequest;
 use Illuminate\Http\Request;
 use App\User;
 class UserController extends Controller
@@ -38,7 +38,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+        $user  = new User;
+        return view('admin.users.create',compact('user'));
     }
 
     /**
@@ -47,9 +48,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        $user  = new User;
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
+        return redirect()->route('admin.users.index')
+                         ->with('info','Usuario "'. $user->name .'" creado'); 
     }
 
     /**

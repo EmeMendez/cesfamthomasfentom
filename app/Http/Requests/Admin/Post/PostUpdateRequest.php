@@ -30,7 +30,7 @@ class PostUpdateRequest extends FormRequest
             'category'      => 'required|integer',
             'tags'          => 'required|array',
             'body'          => 'required',
-            'status'        => 'required|in:DRAFT,PUBLISHED'
+            'status'        => 'required|in:DRAFT,PUBLISHED,APPLY_FOR_PUBLISHED'
 
         ];
     }

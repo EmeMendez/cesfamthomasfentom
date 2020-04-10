@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('url')->unique();
             $table->mediumText('excerpt')->nulleable();
             $table->text('body');
-            $table->enum('status', ['PUBLISHED','DRAFT'])->default('DRAFT');
+            $table->enum('status', ['PUBLISHED','DRAFT','APPLY_FOR_PUBLISH'])->default('DRAFT');
             $table->string('image');
 
             $table->timestamps();
