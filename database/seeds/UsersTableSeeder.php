@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Carbon\Carbon;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -15,7 +16,8 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => 'Emelinda Méndez',
             'email' => 'ememendeztabilo@gmail.com',
-            'password' => bcrypt('123')
+            'password' => bcrypt('123'),
+            'email_verified_at' => Carbon::now()
         ]);
     }
 }

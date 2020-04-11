@@ -39,6 +39,7 @@
                             <option selected disabled value="">--Seleccione Estado--</option>
                             <option @if(old('status',$status) == 'PUBLISHED') selected @endif value="PUBLISHED">Publicados</option>
                             <option @if(old('status',$status) == 'DRAFT') selected @endif value="DRAFT">Borradores</option>         
+                            <option @if(old('status',$status) == 'APPLY_FOR_PUBLISH') selected @endif value="APPLY_FOR_PUBLISH">Pendiente de Publicar</option>                                   
                           </select>         
                         </div>
                         
@@ -90,7 +91,7 @@
                             <tr>
                               <td scope="col">{{$post->id}}</td>
                               <td scope="col">{{$post->name}}</td>
-                              <td scope="col">@if($post->status == 'DRAFT') <span class="text-dark">Borrador<span> @else <span class="text-success">Publicado<span> @endif</td>
+                              <td scope="col">@if($post->status == 'DRAFT') <span class="text-dark">Borrador<span> @elseif($post->status == 'PUBLISHED') <span class="text-success">Publicado<span>@else <span style="color:orangered">Solicitud de publicar<span> @endif</td>
                               <td scope="col"><a href="{{route('admin.posts.show',$post->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
                               <td scope="col"><a href="{{route('admin.posts.edit',$post->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
                               
@@ -107,7 +108,7 @@
                           @endforeach
                           </tbody>
                         </table>
-                        {{$posts->links()}}
+                        {{$posts->appends(['status' => $status,'name'=> $name, 'category'=> $category])->links()}}
                       </table>
                     </div>                        
                   {{-- end table --}}                

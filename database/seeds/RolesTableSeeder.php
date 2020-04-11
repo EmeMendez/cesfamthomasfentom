@@ -15,7 +15,7 @@ class RolesTableSeeder extends Seeder
         Role::create(['name' => 'admin']);
 
         $role = Role::find(1);
-        $role->givePermissionTo(['admin.users.index','admin.users.show','admin.users.create','admin.users.edit','admin.users.destroy']);
+        $role->givePermissionTo(['admin.users.index','admin.users.show','admin.users.create','admin.users.edit','admin.users.destroy','admin.posts.index','admin.posts.show','admin.posts.edit']);
         $user = User::find(30);
         $user->assignRole('admin');
 

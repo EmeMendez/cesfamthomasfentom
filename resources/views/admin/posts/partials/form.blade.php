@@ -54,7 +54,7 @@
         </div>
 
 
-        <div class="form-check d-inline">
+        <div class="form-check mr-4 d-inline">
           <input 
                 @if($post->status == 'DRAFT') 
                     checked
@@ -66,6 +66,21 @@
             BORRADOR
           </label>
         </div>
+
+
+        <div class="form-check d-inline">
+          <input 
+                @if($post->status == 'APPLY_FOR_PUBLISH') 
+                    checked
+                @elseif(old('status',$post->status) == 'APPLY_FOR_PUBLISH')
+                    checked  
+                @endif                 
+                name="status" class="form-check-input" type="radio" id="apply_for_publish" value="APPLY_FOR_PUBLISH">
+          <label class="form-check-label" for="apply_for_publish">
+            SOLICITUD DE PUBLICAR
+          </label>
+        </div>        
+
 
       </div>
     </div>
