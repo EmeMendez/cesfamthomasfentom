@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Tag;
 use App\Image;
@@ -10,6 +10,9 @@ use App\Category;
 
 class Post extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'user_id','category_id','name','excerpt','body','image'
     ];
