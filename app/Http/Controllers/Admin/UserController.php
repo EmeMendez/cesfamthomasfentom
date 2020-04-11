@@ -67,7 +67,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
+        $user = User::find($id);
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -78,7 +79,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -90,7 +92,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->get('name');
+        if($user->email != $request->get('email')){
+            $user->email_verified_at = null;
+        }
+        $user->email = $request->get('email');
+        $user->save();
+        return redirect()->route('admin.users.index')
+               ->with('info','Usuario actualizado con éxito');
     }
 
     /**

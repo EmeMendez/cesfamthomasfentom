@@ -67,6 +67,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        Mi cuenta
+                                     </a>                                      
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -75,6 +78,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                 
                                 </div>
                             </li>
                         @endguest
@@ -86,9 +90,9 @@
         <div class="py-4">
             {{-- start info message --}}
             <div class="container">
-                <div class="col-10 mx-auto">
+                <div class="col-10 mx-auto px-0">
                     @if(session('info'))
-                    <div class="alert alert-success px-4" role="alert">
+                    <div class="alert alert-success" role="alert">
                         {!! session('info') !!}
                       </div>                    
                     @endif

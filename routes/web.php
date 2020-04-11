@@ -28,7 +28,7 @@ Route::prefix('admin')->group(function(){
         return redirect('admin/home');
     });    
     Route::get('/home', 'HomeController@index')->name('home');
-    Auth::routes(['verify' => true]);
+    Auth::routes(['verify' => true, 'register' => false]);
 
 });
 

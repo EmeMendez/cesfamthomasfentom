@@ -13,6 +13,7 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         Role::create(['name' => 'admin']);
+
         $role = Role::find(1);
         $role->givePermissionTo(['admin.users.index','admin.users.show','admin.users.create','admin.users.edit','admin.users.destroy']);
         $user = User::find(30);
