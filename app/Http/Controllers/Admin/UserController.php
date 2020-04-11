@@ -25,10 +25,13 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $name = $request->get("name");
-        $users = User::orderBy('id','DESC')
-                 ->name($name)->paginate(15);
-        return view('admin.users.index',compact('users','name'));
+        $name        = $request->get("name");
+        $user_status = $request->get('user_status');
+        $users       = User::orderBy('id','DESC')
+                            ->deleted($user_status)
+                            ->name($name)
+                            ->paginate(15);
+        return view('admin.users.index',compact('users','name','user_status'));
     }
 
     /**

@@ -50,4 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
         if($name) 
             return $query->where('name','LIKE',"%$name%");
     }
+
+    public function scopeDeleted($query,$status){
+        if($status == 'DELETED')
+            return $query->onlyTrashed();
+    }
 }
