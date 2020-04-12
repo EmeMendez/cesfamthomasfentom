@@ -40,6 +40,12 @@ Route::middleware(['auth','verified'])->group(function () {
                     Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
                     Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
                     Route::resource('usuarios' ,    'UserController')->names('users')->parameters(['usuarios' => 'user']);              
+                    Route::post('usuario/{user}/restore','UserController@restore')->name('users.restore');
+                    Route::post('post/{post}/restore','PostController@restore')->name('posts.restore');
+                    Route::post('categoria/{category}/restore','CategoryController@restore')->name('categories.restore');
+                    Route::post('etiqueta/{tag}/restore','TagController@restore')->name('tags.restore');                   
+                    
+                    
                     Route::resource('posts',        'PostController')->names('posts');                                
                     Route::get('posts/{post}/image','PostController@image');/*vue*/
                     Route::get('posts/{post}/images','PostController@images');/*vue*/

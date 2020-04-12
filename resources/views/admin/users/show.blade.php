@@ -12,7 +12,10 @@
                         <p><b>Nombre :</b> {{$user->name}}</p> 
                         <p><b>E-mail :</b> {{$user->email}}</p>           
                         <p><b>Fecha de creación : </b> {{$user->created_at}}</p>  
-                        <p><b>Fecha de actualización : </b> {{$user->updated_at}}</p>                  
+                        <p><b>Fecha de actualización : </b> {{$user->updated_at}}</p>
+                        @if($user->deleted_at != null)
+                        <p><b>Fecha de eliminación : </b> {{$user->deleted_at}}</p>
+                        @endif
                     </div>               
                 </div>
             </div>

@@ -43,7 +43,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     public function posts(){
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class)->withTrashed();
     }
 
     public function scopeName($query,$name){

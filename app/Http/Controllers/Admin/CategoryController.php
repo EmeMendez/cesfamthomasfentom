@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $this->middleware('permission:admin.categories.show')->only('show');
         $this->middleware('permission:admin.categories.create')->only('create','store');
         $this->middleware('permission:admin.categories.edit')->only('edit','update');
-        $this->middleware('permission:admin.categories.destroy')->only('destroy');
+        $this->middleware('permission:admin.categories.destroy')->only('destroy','restore');
 
     }
 
@@ -28,11 +28,13 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $name = $request->get("name");
-        $categories  = Category::orderBy('id','DESC')
-                       ->name($name)
-                        ->paginate(15);
-        return view('admin.categories.index',compact('categories','name'));
+        $name               = $request->get("name");
+        $category_status    = $request->get("category_status");
+        $categories         = Category::orderBy('id','DESC')
+                                        ->deleted($category_status)
+                                        ->name($name)
+                                        ->paginate(15);
+        return view('admin.categories.index',compact('categories','name','category_status'));
     }
 
     /**
@@ -114,6 +116,11 @@ class CategoryController extends Controller
         $category = Category::find($id);
         Category::find($id)->delete();
         return redirect()->route('admin.categories.index')
-             ->with('info','Categoría "'.$category->name.'" eliminada con éxito');
+             ->with('info','Categoría <b>'.$category->name.'</b> eliminada con éxito');
+    }
+
+    public function restore($id){
+        Category::onlyTrashed()->find($id)->restore();
+        return redirect()->route('admin.categories.index')->with('info','Categoría restaurada con éxito');          
     }
 }

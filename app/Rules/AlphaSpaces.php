@@ -36,6 +36,6 @@ class AlphaSpaces implements Rule
      */
     public function message()
     {
-        return trans('validation.alpha_space');;
+        return trans('validation.alpha_space');
     }
 }

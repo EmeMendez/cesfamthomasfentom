@@ -18,32 +18,23 @@
                     {{-- start search --}}
                     <form action="{{route('admin.posts.index')}}" method="GET">
                       <div class="row">
-                        <div class="col-12 col-md-3 mb-2 mb-md-0 ">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0 ">
                           <div class="input-group">
                             <input name="name"value="{{old('name',$name)}}" type="text" class="form-control" id="search" placeholder="Buscar por nombre">
                   
                           </div>        
                         </div>
                   
-                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                        <div class="col-12 col-md-5 mb-2 mb-md-0">
                           <select name="category" class="form-control" id="category">
                             <option selected disabled value="">--Seleccione categoría--</option>
                             @foreach($categories as $cat)
-                          <option  @if(old('category',$category) == $cat->id) selected @endif value="{{$cat->id}}">{{$cat->name}}</option>
+                          <option @if($cat->deleted_at != null)  class="text-danger" @endif  @if(old('category',$category) == $cat->id) selected @endif value="{{$cat->id}}">{{$cat->name}}</option>
                             @endforeach
                           </select>         
-                        </div>
-                  
-                        <div class="col-12 col-md-3 mb-2 mb-md-0">
-                          <select name="status" class="form-control" id="status">
-                            <option selected disabled value="">--Seleccione Estado--</option>
-                            <option @if(old('status',$status) == 'PUBLISHED') selected @endif value="PUBLISHED">Publicados</option>
-                            <option @if(old('status',$status) == 'DRAFT') selected @endif value="DRAFT">Borradores</option>         
-                            <option @if(old('status',$status) == 'APPLY_FOR_PUBLISH') selected @endif value="APPLY_FOR_PUBLISH">Pendiente de Publicar</option>                                   
-                          </select>         
-                        </div>
-                        
-                        <div class="col-6 col-md-1 text-right text-md-left ">
+                        </div> 
+                                               
+                        <div class="col-6 col-md-1 text-right text-md-left d-md-block d-none ">
                           <button type="submit" class="btn btn-primary">
                             <svg class="bi bi-search text-white" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
@@ -51,6 +42,35 @@
                             </svg>          
                           </button>
                         </div>
+
+                      </div>
+
+                      <div class="row pt-3">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                          <select name="status" class="form-control" id="status">
+                            <option selected disabled value="">--Seleccione Estado--</option>
+                            <option @if(old('status',$status) == 'PUBLISHED') selected @endif value="PUBLISHED">Publicados</option>
+                            <option @if(old('status',$status) == 'DRAFT') selected @endif value="DRAFT">Borradores</option>         
+                            <option @if(old('status',$status) == 'APPLY_FOR_PUBLISH') selected @endif value="APPLY_FOR_PUBLISH">Pendiente de Publicar</option>                                   
+                          </select>         
+                        </div>
+
+                        <div class="col-12 col-md-5 mb-2 mb-md-0">
+                          <select name="post_status" class="form-control" id="post_status">
+                            <option selected disabled value="">--Seleccione Tipo--</option>
+                            <option @if(old('post_status',$post_status) == 'ACTIVE') selected @endif value="ACTIVE">Activos</option>
+                            <option @if(old('post_status',$post_status) == 'DELETED') selected @endif value="DELETED">Eliminados</option>
+                          </select>        
+                        </div>
+
+                        <div class="col-6 col-md-1 text-right text-md-left d-md-none d-block ">
+                          <button type="submit" class="btn btn-primary">
+                            <svg class="bi bi-search text-white" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+                              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+                            </svg>          
+                          </button>
+                        </div>                        
                   
                         <div class="col-6 col-md-1">
                           <a class="text-white" href="{{route('admin.posts.index')}}">
@@ -61,9 +81,11 @@
                               </svg> 
                             </button>
                           </a>
-                  
-                        </div>
+                        </div> 
+                        
+                        
                       </div>
+
                       </form>
                     {{-- end search --}}
 
@@ -92,18 +114,7 @@
                               <td scope="col">{{$post->id}}</td>
                               <td scope="col">{{$post->name}}</td>
                               <td scope="col">@if($post->status == 'DRAFT') <span class="text-dark">Borrador<span> @elseif($post->status == 'PUBLISHED') <span class="text-success">Publicado<span>@else <span style="color:orangered">Solicitud de publicar<span> @endif</td>
-                              <td scope="col"><a href="{{route('admin.posts.show',$post->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
-                              <td scope="col"><a href="{{route('admin.posts.edit',$post->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
-                              
-                              @can('admin.posts.destroy')
-                              <td scope="col">
-                                <form action="{{route('admin.posts.destroy',$post->id)}}" method="POST">
-                                  @csrf
-                                  @method('DELETE')                                
-                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Eliminar">
-                                </form>
-                              </td>
-                              @endcan
+                              <x-admin.tables.actionbuttons :model="$post" :group="'posts'"></x-admin.tables.actionbuttons>
                             </tr>
                           @endforeach
                           </tbody>

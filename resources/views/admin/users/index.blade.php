@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{-- start search --}}
                     <form action="{{route('admin.users.index')}}" method="GET">
                         <div class="row">
@@ -83,17 +82,7 @@
                               <td scope="col">{{$user->id}}</td>
                               <td scope="col">{{$user->name}}</td>
                               <td scope="col">{{$user->email}}</td>
-                              <td scope="col"><a href="{{route('admin.users.show',$user->id)}}"><button class="btn btn-sm btn-outline-dark">Ver</button></a></td>
-                              <td scope="col"><a href="{{route('admin.users.edit',$user->id)}}"><button class="btn btn-sm btn-outline-info">Editar</button></a></td>
-
-                              <td scope="col">
-                                <form action="{{route('admin.users.destroy',$user->id)}}" method="POST">
-                                  @csrf
-                                  @method('DELETE')                                
-                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Eliminar">
-                              </form>    
-                              </td>
-
+                              <x-admin.tables.actionbuttons :model="$user" :group="'users'"></x-admin.tables.actionbuttons>
                             </tr>
                           @endforeach
                           </tbody>

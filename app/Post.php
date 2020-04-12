@@ -19,14 +19,14 @@ class Post extends Model
 
     //relations 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withTrashed();
     }
 
     public function tags(){
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)->withTrashed();
     }
     public function images(){
         return $this->hasMany(Image::class);
@@ -47,6 +47,11 @@ class Post extends Model
         if($category){
             return $query->where('category_id',$category);
         }
+    }
+
+    public function scopeDeleted($query,$post_status){
+        if($post_status == 'DELETED')
+            return $query->onlyTrashed();
     }
 
 }

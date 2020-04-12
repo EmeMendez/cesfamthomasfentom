@@ -56,6 +56,7 @@ return [
         'string'  => 'El campo :attribute debe tener como mínimo :value caracteres.',
         'array'   => 'El campo :attribute debe tener como mínimo :value elementos.',
     ],
+    'if_deleted_at' => 'La :attribute no debe haber sido eliminada.',
     'image'    => ':attribute debe ser una imagen.',
     'in'       => ':attribute es inválido.',
     'in_array' => 'El campo :attribute no existe en :other.',

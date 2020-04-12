@@ -16,7 +16,10 @@
         <select name="category" class="form-control" id="category">
           <option disabled  selected value="">-- Seleccione una categoría --</option>
           @foreach ($categories as $category)
-              <option 
+              <option
+                  @if($category->deleted_at != null)
+                     class="text-danger" 
+                  @endif
                   @if($post->category && $post->category->id == $category->id) 
                       selected 
                   @elseif(old('category',$post->category_id) == $category->id) 
@@ -40,6 +43,7 @@
       <label for="status" class="col-sm-2 col-form-label">Estado</label>
       <div class="col-sm-10">
         
+        @if(auth()->user()->hasRole('admin'))
         <div class="form-check mr-4  d-inline ">
           <input 
                 @if($post->status == 'PUBLISHED') 
@@ -52,7 +56,7 @@
             PUBLICADO
           </label>
         </div>
-
+        @endif()
 
         <div class="form-check mr-4 d-inline">
           <input 
@@ -91,7 +95,10 @@
     Selección multiple con tecla CTRL(control).
     <select name="tags[]" size="7"  multiple="multiple" class="form-control" id="tags">
       @foreach ($tags as $tag)
-          <option value="{{$tag->id}}" 
+          <option  value="{{$tag->id}}"
+            @if($tag->deleted_at != null)
+              class="text-danger" 
+            @endif 
             @if( ( collect( old( 'tags',$post->tags ) )->contains( strval($tag->id) )) ) 
                 selected
             @elseif( ($post->tags)->contains( strval($tag->id) ) ) 

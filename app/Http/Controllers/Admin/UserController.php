@@ -70,7 +70,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::withTrashed()->find($id);
         return view('admin.users.show',compact('user'));
     }
 
@@ -119,4 +119,12 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')
              ->with('info','Usuario <b>'.$user->name.'</b> eliminado con éxito');
     }
+
+
+    public function restore($id){
+        User::onlyTrashed()->find($id)->restore();
+        return redirect()->route('admin.users.index')->with('info','Usuario restaurado con éxito');
+    }
+
+
 }

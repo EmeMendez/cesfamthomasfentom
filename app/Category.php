@@ -12,11 +12,16 @@ class Category extends Model
     protected $fillable = ['name','description'];
 
     public function posts(){
-        return $this->hasToMany(Post::class);// a category has many posts
+        return $this->hasToMany(Post::class)->withTrashed();// a category has many posts
     }
 
     public function scopeName($query,$name){
         if($name)
             return $query->where('name','LIKE',"%$name%");
+    }
+
+    public function scopeDeleted($query,$category_status){
+        if($category_status=='DELETED')
+            return $query->onlyTrashed();
     }
 }

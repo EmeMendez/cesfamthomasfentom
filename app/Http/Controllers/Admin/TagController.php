@@ -16,7 +16,7 @@ class TagController extends Controller
         $this->middleware('permission:admin.tags.show')->only('show');
         $this->middleware('permission:admin.tags.create')->only('create','store');
         $this->middleware('permission:admin.tags.edit')->only('edit','update');
-        $this->middleware('permission:admin.tags.destroy')->only('destroy');
+        $this->middleware('permission:admin.tags.destroy')->only('destroy','restore');
 
     }
 
@@ -27,12 +27,14 @@ class TagController extends Controller
      */
     public function index(Request $request)
     {
-        $name = $request->get("name");
+        $name       = $request->get("name");
+        $tag_status = $request->get('tag_status');
         $tags = Tag::orderBy('id','DESC')
+                ->deleted($tag_status)
                 ->name($name)  
                 ->paginate(15);   
         
-        return view('admin.tags.index',compact('tags','name'));
+        return view('admin.tags.index',compact('tags','name','tag_status'));
     }
 
     /**
@@ -114,5 +116,10 @@ class TagController extends Controller
         Tag::find($id)->delete();
         return back()->with('info','La etiqueta "'.$tag->name. '" ha sido eliminada con éxito');
 
+    }
+
+    public function restore($id){
+        Tag::onlyTrashed()->find($id)->restore();
+        return redirect()->route('admin.tags.index')->with('info','Etiqueta restaurada correctamente');
     }
 }

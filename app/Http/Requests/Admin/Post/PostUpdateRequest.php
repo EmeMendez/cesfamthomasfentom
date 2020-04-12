@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\ifDeletedAt;
 
 class PostUpdateRequest extends FormRequest
 {
@@ -27,10 +28,10 @@ class PostUpdateRequest extends FormRequest
             'name'          => ['required','unique:posts,name,' . $this->post],
             'excerpt'       => 'required',
             'body'          => 'required',
-            'category'      => 'required|integer',
-            'tags'          => 'required|array',
+            'category'      => ['required','integer',new ifDeletedAt('category')],
+            'tags'          => ['required','array',new ifDeletedAt('tag')],
             'body'          => 'required',
-            'status'        => 'required|in:DRAFT,PUBLISHED,APPLY_FOR_PUBLISHED'
+            'status'        => 'required|in:DRAFT,PUBLISHED,APPLY_FOR_PUBLISH'
 
         ];
     }
