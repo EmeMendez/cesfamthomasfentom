@@ -55,4 +55,5 @@ class User extends Authenticatable implements MustVerifyEmail
         if($status == 'DELETED')
             return $query->onlyTrashed();
     }
+
 }

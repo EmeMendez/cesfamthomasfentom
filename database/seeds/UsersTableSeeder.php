@@ -19,5 +19,12 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('123'),
             'email_verified_at' => Carbon::now()
         ]);
+        User::create([
+            'name' => 'Ana Limón',
+            'email' => 'ana@gmail.com',
+            'password' => bcrypt('123'),
+            'email_verified_at' => Carbon::now()
+        ]);
+        
     }
 }

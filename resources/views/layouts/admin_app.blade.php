@@ -49,18 +49,26 @@
                                 </li>
                             @endif --}}
                         @else
+                            @can('admin.categories.index')
                             <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.categories.index')}}">Categorías</a>
-                            </li>   
+                            </li> 
+                            @endcan
+                            @can('admin.tags.index')  
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.tags.index')}}">Etiquetas</a>
                             </li>
+                            @endcan
+                            @can('admin.posts.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.posts.index')}}">Posts</a>
                             </li> 
+                            @endcan
+                            @can('admin.users.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.users.index')}}">Usuarios</a>
-                                </li>                                                        
+                            </li> 
+                            @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

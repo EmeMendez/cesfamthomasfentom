@@ -127,8 +127,10 @@
                                                  
 
                       </div>
-                    @else
+                    @elseif($name)
                     <p class="text-secondary my-2">No se encontraron resultados para la busqueda : <b>{{$name}}</b></p>     
+                    @else
+                    <p class="text-secondary my-2">No se encontraron resultados</p>     
                     @endif
             </div>
         </div>

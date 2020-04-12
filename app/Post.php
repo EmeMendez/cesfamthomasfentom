@@ -53,5 +53,10 @@ class Post extends Model
         if($post_status == 'DELETED')
             return $query->onlyTrashed();
     }
+    
+    public function scopeAdmin($query){
+        if(!auth()->user()->hasRole('admin'))
+            return $query->where('user_id',auth()->user()->id);
+    }
 
 }

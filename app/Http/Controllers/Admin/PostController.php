@@ -20,7 +20,7 @@ class PostController extends Controller
         $this->middleware('permission:admin.posts.show')->only('show');
         $this->middleware('permission:admin.posts.create')->only('create','store');
         $this->middleware('permission:admin.posts.edit')->only('edit','update');
-        $this->middleware('permission:admin.posts.destroy')->only('destroy');
+        $this->middleware('permission:admin.posts.destroy')->only('destroy','restore');
 
     }
 
@@ -43,6 +43,7 @@ class PostController extends Controller
                            ->name($name) 
                            ->status($status) 
                            ->category($category)
+                           ->admin()
                            ->paginate(15);   
         
         return view('admin.posts.index',compact('posts','categories','name','status','category','post_status'));
@@ -106,7 +107,6 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::withTrashed()->find($id);
-        $this->post = $post;
         return view('admin.posts.show',compact('post'));
     }
 
@@ -119,7 +119,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        $this->post = $post;
+        $this->authorize('pass',$post);
         $categories = Category::withTrashed()->orderBy('name','ASC')->get();
         $tags = Tag::withTrashed()->orderBy('name','ASC')->get();        
         return view('admin.posts.edit',compact('post','categories','tags'));

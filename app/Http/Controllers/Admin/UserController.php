@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\UserStoreRequest;
 use Illuminate\Http\Request;
 use App\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class UserController extends Controller
 {
 
@@ -13,7 +16,7 @@ class UserController extends Controller
         $this->middleware('permission:admin.users.show')->only('show');
         $this->middleware('permission:admin.users.create')->only('create','store');
         $this->middleware('permission:admin.users.edit')->only('edit','update');
-        $this->middleware('permission:admin.users.destroy')->only('destroy');
+        $this->middleware('permission:admin.users.destroy')->only('destroy','restore');
 
     }
 
@@ -41,8 +44,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user  = new User;
-        return view('admin.users.create',compact('user'));
+        $user           = new User;
+        $roles          = Role::get();
+        $permissions    = Permission::get();
+        return view('admin.users.create',compact('user','roles','permissions'));
     }
 
     /**
