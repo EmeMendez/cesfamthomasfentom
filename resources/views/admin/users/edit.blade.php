@@ -12,24 +12,7 @@
                         <form action="{{route('admin.users.update',$user->id)}}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <div class="form-group row">
-                                <label for="name" class="col-sm-2 col-form-label">Nombre</label>
-                                <div class="col-sm-10">
-                                  <input type="text" name="name" class="form-control" id="name" value="{{old('name',$user->name)}}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Correo Electrónico</label>
-                                <div class="col-sm-10">
-                                  <input type="text" name="email" class="form-control" id="email" value="{{old('email',$user->email)}}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                  <label for="btn" class="col-sm-2 col-form-label">&nbsp;</label>
-                                  <div class="col-sm-10">
-                                  <button class="btn btn-info" id="btn" type="submit">Editar</button>
-                                  </div>
-                            </div> 
+                            @include('admin.users.partials.form',['btn_text' =>'Editar','btn_type' => 'btn-info','create' => false])
                         </form>               
                     </div>               
                 </div>

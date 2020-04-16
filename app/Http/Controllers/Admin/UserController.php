@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\UserStoreRequest;
+use App\Http\Requests\Admin\User\UserUpdateRequest;
+
 use Illuminate\Http\Request;
 use App\User;
 use Spatie\Permission\Models\Role;
@@ -63,6 +65,9 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->password = bcrypt($request->get('password'));
         $user->save();
+        $user->assignRole($request->input('roles'));  
+        $user->givePermissionTo($request->input('permissions'));
+
         return redirect()->route('admin.users.index')
                          ->with('info','Usuario "'. $user->name .'" creado'); 
     }
@@ -88,7 +93,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.users.edit',compact('user'));
+        $roles          = Role::get();
+        $permissions    = Permission::get();
+        return view('admin.users.edit',compact('user','roles','permissions'));
     }
 
     /**
@@ -98,7 +105,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
         $user->name = $request->get('name');
@@ -107,6 +114,8 @@ class UserController extends Controller
         }
         $user->email = $request->get('email');
         $user->save();
+        $user->syncRoles($request->input('roles'));  
+        $user->syncPermissions($request->input('permissions'));
         return redirect()->route('admin.users.index')
                ->with('info','Usuario actualizado con éxito');
     }

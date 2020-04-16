@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     <div class="col-12 px-0">
-                        <form action="{{route('admin.users.store')}}" method="POST">
+                        <form id="form" action="{{route('admin.users.store')}}" method="POST">
                             @csrf
-                            @include('admin.users.partials.form',['btn_text' =>'Crear','btn_type' => 'btn-success'])
+                            @include('admin.users.partials.form',['btn_text' =>'Crear','btn_type' => 'btn-success','create' => true])
                         </form>               
                     </div>               
                 </div>
