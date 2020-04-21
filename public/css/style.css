@@ -1,0 +1,175 @@
+.w-100{
+    width: 100%;
+}
+.h-45{
+    height: 450px;
+}
+
+.up{
+        margin-top: -25%;
+    }
+.img-dark-50
+{
+    filter: brightness(70%);
+}
+.bg-fenton-dark{
+    background-color: #161618;
+}
+.text-fenton-blue{
+    color: #90caf9;
+}
+.bg-fenton-blue{
+    background-color: #0b2647;
+}
+.text-fenton-orange{
+    color: #ff8a65;
+}
+.bg-fenton-orange{
+    background-color: #ff8a65;
+   
+}
+.bg-fenton-gray{
+    background-color: #596e79;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+color: #fff;
+text-decoration: none;
+background-color: #092648;
+}
+
+.dropdown-item:active {
+color: #fff;
+text-decoration: none;
+background-color: gray;
+
+}
+
+p{
+    font-family: 'Quicksand', sans-serif;
+}
+span{
+    font-family: 'Quicksand', sans-serif;
+}
+a{
+    font-family: 'Quicksand', sans-serif;
+
+}
+a:hover{
+    color: white;
+}
+.text-fenton-light-blue{
+    color: #ffffff99;
+}
+.text-fenton-gold{
+    color: #b09a51;
+}
+
+
+button {
+background: #b09a51;
+color: #fff;
+font-family: Sans-serif;
+font-size: 20px;
+text-align: center;
+border: 0;
+transition: all 0.3s ease 0s;
+}
+
+button:hover {
+background: #8e7a3f
+}
+
+
+.bg-fenton-green{
+background-color: #38a89d;
+}
+
+.melon:hover #dropdown-menu-melon {
+  display: block;
+}
+.strawberry:hover #dropdown-menu-strawberry {
+display: block;
+}
+.bg-fenton-gold{
+background-color: #b09a51;
+
+}
+
+
+input[type=text] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 2px solid #4b4b4d;
+
+}
+.nav-link{
+font-family: 'Quicksand', sans-serif;
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: black;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+color: white;
+}
+
+.nav-melon:hover{
+background-color: #0b2647;
+}
+
+
+    /* The hero image */
+    .hero-image {
+        /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/main.jpg");
+      
+        /* Set a specific height */
+        height: 50%;
+      
+        /* Position and center the image to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+      
+      /* Place text in the middle of the image */
+      .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+      h2{
+          font-family: 'Archivo Black', sans-serif;
+      
+      }
+      h3{
+          font-family: 'Archivo Black', sans-serif;
+         
+      }
+      h4{
+          font-family: 'Archivo Black', sans-serif;
+      
+      }
+      h5{
+          font-family: 'Archivo Black', sans-serif;
+         
+      }
+      h6{
+          font-family: 'Archivo Black', sans-serif;
+      
+      }
+      a{
+          
+      }
+      .dropdown-menu{
+          border-radius: 0px;
+          padding: 0px
+      }

@@ -29,9 +29,8 @@ class PostStoreRequest extends FormRequest
             'excerpt'       => 'required',
             'body'          => 'required',
             'category'      => 'required|integer',
-            'tags'          => 'required|array',
             'body'          => 'required',
-            'status'        => 'required|in:DRAFT,APPLY_FOR_PUBLISH'
+            'status'        => 'required|in:DRAFT,PUBLISHED,APPLY_FOR_PUBLISH'
 
         ];
     }

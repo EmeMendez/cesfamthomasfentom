@@ -88,10 +88,12 @@ class PostController extends Controller
         $post->tags = $request->input('tags'); 
         $post->tags()->sync($post->tags);
 
-        foreach($request->images as $path) {
-               $image = new Image;
-               $image->path = $path->store('images/galery');
-               $post->images()->save($image);                
+        if($request->images){
+            foreach($request->images as $path) {
+                $image = new Image;
+                $image->path = $path->store('images/galery');
+                $post->images()->save($image);                
+            }            
         }
         return redirect()->route('admin.posts.index')
                ->with('info','El post <b>'. $post->name .'</b> ha sido creado con éxito');        

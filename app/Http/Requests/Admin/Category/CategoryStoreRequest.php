@@ -25,7 +25,7 @@ class CategoryStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','unique:categories,name', new AlphaSpaces],
+            'name' => ['required','unique:categories,name'],
             'description' => 'required',
         ];
     }

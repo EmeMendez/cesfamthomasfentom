@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('web.home');
+// });
+
+Route::get('/','Web\HomeController@index')->name('web.home.index');
+
+
+
+
+
+
+
+Route::get('/','Web\HomeController@index')->name('web.home.index');
+
 
 // App::setlocale('es');
 
@@ -31,6 +42,13 @@ Route::prefix('admin')->group(function(){
     Auth::routes(['verify' => true, 'register' => false]);
 
 });
+
+
+
+
+
+
+
 
 
 Route::middleware(['auth','verified'])->group(function () {
