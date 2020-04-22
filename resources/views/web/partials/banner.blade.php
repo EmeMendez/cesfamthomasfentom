@@ -6,24 +6,25 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://templines.com/wp-content/uploads/2019/10/Water-WordPress-Theme-%E2%80%93-Water-delivery-2019-10-11-16-37-22.jpg" class="d-block w-100 h-45 alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h2 class="text-left">First slide label</h2>
-              <p class="text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
+            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
+            </a>
+            <div class="carousel-caption d-none d-md-block text-left">
+              <h2>First slide label</h2>
+              <p>Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium. ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://templines.com/wp-content/uploads/2019/10/Water-WordPress-Theme-%E2%80%93-Water-delivery-2019-10-11-16-37-22.jpg" class="d-block w-100 h-45 alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
+              <div class="carousel-caption d-none d-md-block text-left">
+              <h2>First slide label</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://templines.com/wp-content/uploads/2019/10/Water-WordPress-Theme-%E2%80%93-Water-delivery-2019-10-11-16-37-22.jpg" class="d-block w-100 h-45 alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
+              <div class="carousel-caption d-none d-md-block text-left">
+              <h2>First slide label</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
             </div>
           </div>
         </div>
