@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item  ">
-        <a class="nav-link text-dark" href="#">INICIO</a>
+        <a class="nav-link text-dark" href="{{route('web.home')}}">INICIO</a>
       </li>
       <li class="nav-item  bg-fenton-gold">
         <a class="nav-link text-white" href="#">COVID-19</a>
@@ -22,14 +22,14 @@
                   Desarrollo organizacional
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="#">Historia</a>
-                  <a class="dropdown-item" href="#">Misión</a>
-                  <a class="dropdown-item" href="#">Visión</a>
-                  <a class="dropdown-item" href="#">Política</a>
+              <a class="dropdown-item" href="{{route('web.fenton.history')}}">Historia</a>
+                  <a class="dropdown-item" href="{{route('web.fenton.mision')}}">Misión</a>
+                  <a class="dropdown-item" href="{{route('web.fenton.vision')}}">Visión</a>
+                  <a class="dropdown-item" href="{{route('web.fenton.politic')}}">Política</a>
               </div>
           </div>
-          <a class="dropdown-item" href="#">Ubicación</a>
-          <a class="dropdown-item" href="#">Noticias</a>
+          <a class="dropdown-item" href="{{route('web.fenton.location')}}">Ubicación</a>
+          <a class="dropdown-item" href="{{route('web.fenton.news')}}">Noticias</a>
 
         </div> 
       </li>
@@ -44,15 +44,14 @@
                   Desarrollo organizacional
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="#">Historia</a>
-                  <a class="dropdown-item" href="#">Misión</a>
-                  <a class="dropdown-item" href="#">Visión</a>
-                  <a class="dropdown-item" href="#">Política</a>
+                  <a class="dropdown-item" href="{{route('web.rioseco.history')}}">Historia</a>
+                  <a class="dropdown-item" href="{{route('web.rioseco.mision')}}">Misión</a>
+                  <a class="dropdown-item" href="{{route('web.rioseco.vision')}}">Visión</a>
+                  <a class="dropdown-item" href="{{route('web.rioseco.politic')}}">Política</a>
               </div>
           </div>
-          <a class="dropdown-item" href="#">Ubicación</a>
-          <a class="dropdown-item" href="#">Noticias</a>
-
+          <a class="dropdown-item" href="{{route('web.rioseco.location')}}">Ubicación</a>
+          <a class="dropdown-item" href="{{route('web.rioseco.news')}}">Noticias</a>
         </div> 
       </li>      
 
@@ -67,14 +66,14 @@
                   Desarrollo organizacional
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
-                  <a class="dropdown-item" href="#">Historia</a>
-                  <a class="dropdown-item" href="#">Misión</a>
-                  <a class="dropdown-item" href="#">Visión</a>
-                  <a class="dropdown-item" href="#">Política</a>
+                  <a class="dropdown-item" href="{{route('web.sarabraun.history')}}">Historia</a>
+                  <a class="dropdown-item" href="{{route('web.sarabraun.mision')}}">Misión</a>
+                  <a class="dropdown-item" href="{{route('web.sarabraun.vision')}}">Visión</a>
+                  <a class="dropdown-item" href="{{route('web.sarabraun.politic')}}">Política</a>
               </div>
           </div>
-          <a class="dropdown-item" href="#">Ubicación</a>
-          <a class="dropdown-item" href="#">Noticias</a>
+          <a class="dropdown-item" href="{{route('web.sarabraun.location')}}">Ubicación</a>
+          <a class="dropdown-item" href="{{route('web.sarabraun.news')}}">Noticias</a>
 
         </div> 
       </li>
@@ -85,12 +84,12 @@
           PROGRAMAS
         </a>
         <div id="dropdown-menu-melon" class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Salud Mujer</a>
-          <a class="dropdown-item" href="#">Salud Infantil</a>
-          <a class="dropdown-item" href="#">Salud Adulto</a>
-          <a class="dropdown-item" href="#">Salud Mental</a>          
-          <a class="dropdown-item" href="#">Salud Dental</a>
-          <a class="dropdown-item" href="#">Salud Cardiovascular</a>
+          <a class="dropdown-item" href="{{route('web.programs.woman')}}">Salud Mujer</a>
+          <a class="dropdown-item" href="{{route('web.programs.childish')}}">Salud Infantil</a>
+          <a class="dropdown-item" href="{{route('web.programs.adult')}}">Salud Adulto</a>
+          <a class="dropdown-item" href="{{route('web.programs.mental')}}">Salud Mental</a>          
+          <a class="dropdown-item" href="{{route('web.programs.dental')}}">Salud Dental</a>
+          <a class="dropdown-item" href="{{route('web.programs.cardiovascular')}}">Salud Cardiovascular</a>
         </div>
       </li>
 
@@ -100,16 +99,16 @@
           TEMAS DE SALUD
         </a>
         <div id="dropdown-menu-melon" class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Promoción</a>
-          <a class="dropdown-item" href="#">MAIS</a>
-          <a class="dropdown-item" href="#">Vacunación</a>
-          <a class="dropdown-item" href="#">TBC</a>   
+          <a class="dropdown-item" href="{{route('web.healthissues.promotion')}}">Promoción</a>
+          <a class="dropdown-item" href="{{route('web.healthissues.mais')}}">MAIS</a>
+          <a class="dropdown-item" href="{{route('web.healthissues.vaccination')}}">Vacunación</a>
+          <a class="dropdown-item" href="{{route('web.healthissues.tbc')}}">TBC</a>   
         </div>
       </li>
 
 
       <li class="nav-item text-dark">
-        <a class="nav-link text-dark" href="#">CALIDAD</a>
+        <a class="nav-link text-dark" href="{{route('web.quality')}}">CALIDAD</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 d-md-none d-block">

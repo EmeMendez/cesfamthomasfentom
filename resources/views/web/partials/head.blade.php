@@ -6,5 +6,6 @@
     <!-- Fonts -->
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo:400,700&display=swap" rel="stylesheet">    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo:400,700&display=swap" rel="stylesheet">    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
