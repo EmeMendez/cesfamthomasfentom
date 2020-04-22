@@ -1,7 +1,7 @@
 @foreach($posts as $post)
     <div class="row py-3">
         <div class="col-12 col-md-4 objetfitcover">
-            <img class="img-fluid" src="/{{$post->image}}" alt="">
+            <img src="/{{$post->image}}" alt="">
         </div>
         <div class="col-12 col-md-8">
             <h5 class="text-dark text-uppercase">{{$post->name}}</h5>

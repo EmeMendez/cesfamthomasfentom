@@ -188,15 +188,7 @@ background-color: #0b2647;
 
       .objetfitcover img{
         width: 100%;
-        height: 75%;
+        height: 130px;
         object-fit: cover;
     }
-
-    btn-blue{
-        background-color: #092648;
-        color: white;
-    }
-    btn-blue:hover{
-        background-color: #161618;
-        color: white;      
-    }
+    

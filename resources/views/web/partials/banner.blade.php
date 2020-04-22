@@ -6,25 +6,25 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
+            <a href="http://www.google.cl"><img class="img-fluid" src="https://cdn.ticbeat.com/src/uploads/2019/08/record-800x500.jpg" class="d-block w-100 h-45" alt="...">
             </a>
-            <div class="carousel-caption d-none d-md-block text-left">
-              <h2>First slide label</h2>
-              <p>Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium. ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
+            <div class="carousel-caption text-left">
+              <h2>First slide label lorem ipsum</h2>
+              <p class="d-md-block d-none">Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium. ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
-              <div class="carousel-caption d-none d-md-block text-left">
-              <h2>First slide label</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
+            <a href="http://www.google.cl"><img class="img-fluid" src="https://cdn.ticbeat.com/src/uploads/2019/08/record-800x500.jpg" class="d-block w-100 h-45" alt="...">
+              <div class="carousel-caption text-left">
+                <h2>First slide label lorem ipsum</h2>
+                <p class="d-md-block d-none">Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium. ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <a href="http://www.google.cl"><img src="https://www.thisischile.cl/wp-content/uploads/2013/12/1_23072009_172214_puntaarenas.jpg" class="d-block w-100 h-45 alt="...">
-              <div class="carousel-caption d-none d-md-block text-left">
-              <h2>First slide label</h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum magni, sint eos quam commodi, pariatur sapiente deserunt.</p>
+            <a href="http://www.google.cl"><img class="img-fluid" src="https://cdn.ticbeat.com/src/uploads/2019/08/record-800x500.jpg" class="d-block w-100 h-45" alt="...">
+              <div class="carousel-caption text-left">
+                <h2>First slide label lorem ipsum</h2>
+                <p class="d-md-block d-none">Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium. ipsum dolor sit amet consectetur, adipisicing elit. Ipsa tempora perspiciatis quidem natus beatae temporibus at facere quibusdam aperiam aspernatur dolores illum.</p>
             </div>
           </div>
         </div>
