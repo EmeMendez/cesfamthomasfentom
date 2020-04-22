@@ -1,11 +1,7 @@
 @extends('layouts.web_app')
 @section('content')
-        <div class="bg-fenton-blue py-5">
- 
-
-        </div> 
-        <div class="col-12">
-                <div style="margin-top:-10%" class="card col-5 bg-light mx-auto">
+        <div class="col-12 px-0 mx-0">
+                <div class="card bg-light mx-auto">
                         <div class="card-body">
                                 <h1 class="text-dark text-center">Ubicación</h1>
                         </div>
