@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('web.home');
 // });
 
-Route::get('/','Web\HomeController@index')->name('web.home.index');
 
 Route::get('/covid-19','Web\HomeController@index')->name('web.home.index');
 
@@ -26,26 +25,25 @@ Route::get('/covid-19','Web\HomeController@index')->name('web.home.index');
 Route::name('web.')->group(function () {
 
         Route::view('/thomas-fenton/desarrollo-organizacional/historia', 'web.fenton.history')->name('fenton.history');
-        Route::view('/thomas-fenton/desarrollo-organizacional/mision', 'web.fenton.mision')->name('fenton.mision');
-        Route::view('/thomas-fenton/desarrollo-organizacional/vision', 'web.fenton.vision')->name('fenton.vision');
+        Route::view('/thomas-fenton/desarrollo-organizacional/mision-vision', 'web.fenton.mission-vision')->name('fenton.mission-vision');
         Route::view('/thomas-fenton/desarrollo-organizacional/politica', 'web.fenton.politic')->name('fenton.politic');
         Route::view('/thomas-fenton/ubicacion', 'web.fenton.location')->name('fenton.location');
-        Route::view('/thomas-fenton/noticias', 'web.fenton.news')->name('fenton.news');
+        
+        Route::get('/thomas-fenton/noticias', 'Web\PostController@news')->name('fenton.news');
+        Route::get('/thomas-fenton/noticias/categoria/{url}', 'Web\PostController@category')->name('fenton.category');
+        Route::get('/thomas-fenton/noticias/etiqueta/{url}', 'Web\PostController@tag')->name('fenton.tag');
 
 
         Route::view('/rio-seco/desarrollo-organizacional/historia', 'web.rioseco.history')->name('rioseco.history');
-        Route::view('/rio-seco/desarrollo-organizacional/mision', 'web.rioseco.mision')->name('rioseco.mision');
+        Route::view('/rio-seco/desarrollo-organizacional/mission-vision', 'web.rioseco.mission-vision')->name('rioseco.mission-vision');
         Route::view('/rio-seco/desarrollo-organizacional/vision', 'web.rioseco.vision')->name('rioseco.vision');
         Route::view('/rio-seco/desarrollo-organizacional/politica', 'web.rioseco.politic')->name('rioseco.politic');
         Route::view('/rio-seco/ubicacion', 'web.rioseco.location')->name('rioseco.location');
-        Route::view('/rio-seco/noticias', 'web.rioseco.news')->name('rioseco.news');
 
-        Route::view('/sarabraun/desarrollo-organizacional/historia', 'web.sarabraun.history')->name('sarabraun.history');
-        Route::view('/sarabraun/desarrollo-organizacional/mision', 'web.sarabraun.mision')->name('sarabraun.mision');
-        Route::view('/sarabraun/desarrollo-organizacional/vision', 'web.sarabraun.vision')->name('sarabraun.vision');
-        Route::view('/sarabraun/desarrollo-organizacional/politica', 'web.sarabraun.politic')->name('sarabraun.politic');
-        Route::view('/sarabraun/ubicacion', 'web.fsarabraunlocation')->name('sarabraun.location');
-        Route::view('/sarabraun/noticias', 'web.sarabraun.news')->name('sarabraun.news');
+        // Route::view('/sarabraun/desarrollo-organizacional/historia', 'web.sarabraun.history')->name('sarabraun.history');
+        // Route::view('/sarabraun/desarrollo-organizacional/mision-vision', 'web.sarabraun.mission-vision')->name('sarabraun.mission-vision');
+        // Route::view('/sarabraun/desarrollo-organizacional/politica', 'web.sarabraun.politic')->name('sarabraun.politic');
+        // Route::view('/sarabraun/ubicacion', 'web.fsarabraunlocation')->name('sarabraun.location');
 
 
         Route::view('/programas/salud-mujer', 'web.programs.woman')->name('programs.woman');
@@ -61,7 +59,7 @@ Route::name('web.')->group(function () {
         Route::view('/temas-de-salud/tbc', 'web.healthissues.tbc')->name('healthissues.tbc');
 
         Route::view('/calidad', 'web.quality')->name('quality');
-        Route::get('/','Web\HomeController@index')->name('home');
+        Route::get('/','Web\PostController@home')->name('home');
 
 });
 
@@ -78,7 +76,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/',function(){
         return redirect('admin/home');
     });    
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'NewsController@index')->name('home');
     Auth::routes(['verify' => true, 'register' => false]);
 
 });

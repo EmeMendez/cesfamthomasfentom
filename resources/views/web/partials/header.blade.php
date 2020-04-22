@@ -23,9 +23,8 @@
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
               <a class="dropdown-item" href="{{route('web.fenton.history')}}">Historia</a>
-                  <a class="dropdown-item" href="{{route('web.fenton.mision')}}">Misión</a>
-                  <a class="dropdown-item" href="{{route('web.fenton.vision')}}">Visión</a>
-                  <a class="dropdown-item" href="{{route('web.fenton.politic')}}">Política</a>
+                  <a class="dropdown-item" href="{{route('web.fenton.mission-vision')}}">Misión y Visión</a>
+                  <a class="dropdown-item" href="{{route('web.fenton.politic')}}">Política de Calidad</a>
               </div>
           </div>
           <a class="dropdown-item" href="{{route('web.fenton.location')}}">Ubicación</a>
@@ -45,18 +44,16 @@
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
                   <a class="dropdown-item" href="{{route('web.rioseco.history')}}">Historia</a>
-                  <a class="dropdown-item" href="{{route('web.rioseco.mision')}}">Misión</a>
-                  <a class="dropdown-item" href="{{route('web.rioseco.vision')}}">Visión</a>
+                  <a class="dropdown-item" href="{{route('web.rioseco.mission-vision')}}">Misión y Visión</a>
                   <a class="dropdown-item" href="{{route('web.rioseco.politic')}}">Política</a>
               </div>
           </div>
           <a class="dropdown-item" href="{{route('web.rioseco.location')}}">Ubicación</a>
-          <a class="dropdown-item" href="{{route('web.rioseco.news')}}">Noticias</a>
         </div> 
       </li>      
 
 
-      <li class="nav-item dropdown melon">
+      {{-- <li class="nav-item dropdown melon">
         <a class="nav-link dropdown-toggle   text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           MODULO DENTAL SARA BRAUN
         </a>
@@ -67,16 +64,14 @@
               </a>
               <div id="dropdown-menu-strawberry" class="dropdown-menu  ml-0"  aria-labelledby="navbarDropdown2">
                   <a class="dropdown-item" href="{{route('web.sarabraun.history')}}">Historia</a>
-                  <a class="dropdown-item" href="{{route('web.sarabraun.mision')}}">Misión</a>
-                  <a class="dropdown-item" href="{{route('web.sarabraun.vision')}}">Visión</a>
+                  <a class="dropdown-item" href="{{route('web.sarabraun.mission-vision')}}">Misión y Visión</a>
                   <a class="dropdown-item" href="{{route('web.sarabraun.politic')}}">Política</a>
               </div>
           </div>
           <a class="dropdown-item" href="{{route('web.sarabraun.location')}}">Ubicación</a>
-          <a class="dropdown-item" href="{{route('web.sarabraun.news')}}">Noticias</a>
 
         </div> 
-      </li>
+      </li> --}}
 
 
       <li class="nav-item dropdown melon">
