@@ -49,6 +49,7 @@ Route::name('web.')->group(function () {
         Route::view('/programas/salud-mujer', 'web.programs.woman')->name('programs.woman');
         Route::view('/programas/salud-infantil', 'web.programs.childish')->name('programs.childish');
         Route::view('/programas/salud-adulto', 'web.programs.adult')->name('programs.adult');
+        Route::view('/programas/salud-adulto-mayor', 'web.programs.elderly')->name('programs.elderly');
         Route::view('/programas/salud-mental', 'web.programs.mental')->name('programs.mental');
         Route::view('/programas/salud-dental', 'web.programs.dental')->name('programs.dental');
         Route::view('/programas/salud-cardiovascular', 'web.programs.cardiovascular')->name('programs.cardiovascular');
@@ -59,6 +60,9 @@ Route::name('web.')->group(function () {
         Route::view('/temas-de-salud/tbc', 'web.healthissues.tbc')->name('healthissues.tbc');
 
         Route::view('/calidad', 'web.quality')->name('quality');
+        Route::view('/covid-19', 'web.covid')->name('covid');
+
+
         Route::get('/','Web\HomeController@home')->name('home');
 
 });
