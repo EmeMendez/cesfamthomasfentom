@@ -74,9 +74,9 @@ Route::name('web.')->group(function () {
 
 Route::prefix('admin')->group(function(){
     Route::get('/',function(){
-        return view('admin/home');
+        return view('admin.home');
     });    
-    Route::view('admin/home', 'admin/home');
+    Route::view('admin/home', 'admin.home');
     Auth::routes(['verify' => true, 'register' => false]);
 
 });

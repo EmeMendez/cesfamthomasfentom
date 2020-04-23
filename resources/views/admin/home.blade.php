@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Sitio Administrativo Cesfam Dr. Thomas Fenton</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Bienvenid@! has iniciado sesión.
                 </div>
             </div>
         </div>
