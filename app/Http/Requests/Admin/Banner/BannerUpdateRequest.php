@@ -24,8 +24,8 @@ class BannerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['string', 'max:40'],
-            'description' => ['string', 'max:250'],
+            'title' => ['string', 'max:40','nullable'],
+            'description' => ['string', 'max:250','nullable'],
         ];
     }
 }

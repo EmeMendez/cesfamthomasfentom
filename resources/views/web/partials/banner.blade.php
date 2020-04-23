@@ -7,7 +7,7 @@
         <div class="carousel-inner">
           @foreach ($banners as $index => $banner)
           <div class="carousel-item @if($index == 0) active @endif">
-          <a href="{{$banner->link}}"><img class="img-fluid" src="/{{$banner->path}}" class="d-block w-100 h-45" alt="...">
+          <a href="{{$banner->link}}" target="_blank" ><img class="img-fluid" src="/{{$banner->path}}" class="d-block w-100 h-45" alt="...">
             </a>
             <div class="carousel-caption text-left">
             <h3>{{$banner->title}}</h3>

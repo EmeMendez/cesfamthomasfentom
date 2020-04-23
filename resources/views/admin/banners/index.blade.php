@@ -25,7 +25,7 @@
                             @foreach($banners as $index => $banner)
                             <tr>
                               <td scope="col">{{$banner->id}}</td>
-                              <td scope="col">{{$banner->title}}</td>
+                              <td scope="col">@if ($banner->title == '') <em>Banner sin título</em> @else  {{$banner->title}} @endif</td>
                               <x-admin.tables.actionbuttons :model="$banner" :group="'banners'"></x-admin.tables.actionbuttons>
                             </tr>
                           @endforeach
