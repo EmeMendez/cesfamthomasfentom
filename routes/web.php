@@ -74,19 +74,12 @@ Route::name('web.')->group(function () {
 
 Route::prefix('admin')->group(function(){
     Route::get('/',function(){
-        return view('admin.home');
+        return redirect('admin/home');
     });    
-    Route::view('admin/home', 'admin.home');
+    Route::get('/home', 'HomeController@index')->name('home');
     Auth::routes(['verify' => true, 'register' => false]);
 
 });
-
-
-
-
-
-
-
 
 
 Route::middleware(['auth','verified'])->group(function () {
