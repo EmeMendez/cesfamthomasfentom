@@ -10,10 +10,6 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function home(){
-        $posts = Post::orderBy('created_at','DESC')->take(3)->get();
-        return view('web.home',compact('posts'));
-    }
 
     public function news(Request $request){
         $search = $request->get('search');

@@ -39,5 +39,10 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'admin.users.create','description' => 'Crear nuevos usuarios']);
         Permission::create(['name' => 'admin.users.edit','description' => 'Editar un usuario']);
         Permission::create(['name' => 'admin.users.destroy','description' => 'Eliminar y restaurar usuarios']);
+    
+        //banners
+        Permission::create(['name' => 'admin.banners.index','description' => 'Navegar por los banners']);
+        Permission::create(['name' => 'admin.banners.show','description' => 'Ver el detalle de un banner']);
+        Permission::create(['name' => 'admin.banners.edit','description' => 'Editar banners']);
     }
 }

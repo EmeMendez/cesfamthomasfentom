@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/covid-19','Web\HomeController@index')->name('web.home.index');
+// Route::get('/covid-19','Web\HomeController@index')->name('web.home.index');
 
 
 
@@ -59,7 +59,7 @@ Route::name('web.')->group(function () {
         Route::view('/temas-de-salud/tbc', 'web.healthissues.tbc')->name('healthissues.tbc');
 
         Route::view('/calidad', 'web.quality')->name('quality');
-        Route::get('/','Web\PostController@home')->name('home');
+        Route::get('/','Web\HomeController@home')->name('home');
 
 });
 
@@ -74,9 +74,9 @@ Route::name('web.')->group(function () {
 
 Route::prefix('admin')->group(function(){
     Route::get('/',function(){
-        return redirect('admin/home');
+        return view('admin/home');
     });    
-    Route::get('/home', 'NewsController@index')->name('home');
+    Route::view('admin/home', 'admin/home');
     Auth::routes(['verify' => true, 'register' => false]);
 
 });
@@ -96,6 +96,9 @@ Route::middleware(['auth','verified'])->group(function () {
                     Route::resource('categorias',   'CategoryController')->names('categories')->parameters(['categorias' => 'category']);
                     Route::resource('etiquetas',    'TagController')->names('tags')->parameters(['etiquetas' => 'tag']);;
                     Route::resource('usuarios' ,    'UserController')->names('users')->parameters(['usuarios' => 'user']);              
+                    Route::resource('banners',      'BannerController')->names('banners');
+                    Route::get('banners/{banner}/image','BannerController@image');/*vue*/
+
                     Route::post('usuario/{user}/restore','UserController@restore')->name('users.restore');
                     Route::post('post/{post}/restore','PostController@restore')->name('posts.restore');
                     Route::post('categoria/{category}/restore','CategoryController@restore')->name('categories.restore');

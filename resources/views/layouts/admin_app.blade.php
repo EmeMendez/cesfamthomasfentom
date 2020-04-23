@@ -49,6 +49,9 @@
                                 </li>
                             @endif --}}
                         @else
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.banners.index')}}">Banners</a>
+                            </li> 
                             @can('admin.categories.index')
                             <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.categories.index')}}">Categorías</a>

@@ -39,7 +39,11 @@ class RolesTableSeeder extends Seeder
             'admin.posts.show',
             'admin.posts.create',
             'admin.posts.edit',
-            'admin.posts.destroy'
+            'admin.posts.destroy',
+
+            'admin.banners.index',
+            'admin.banners.show',
+            'admin.banners.edit'
             ]);
 
 
@@ -62,6 +66,8 @@ class RolesTableSeeder extends Seeder
                 'admin.posts.create',
                 'admin.posts.edit',
                 'admin.posts.destroy'
+
+                
                 ]);
 
 
