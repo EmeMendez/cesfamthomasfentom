@@ -32,6 +32,7 @@ Route::name('web.')->group(function () {
         Route::get('/thomas-fenton/noticias', 'Web\PostController@news')->name('fenton.news');
         Route::get('/thomas-fenton/noticias/categoria/{url}', 'Web\PostController@category')->name('fenton.category');
         Route::get('/thomas-fenton/noticias/etiqueta/{url}', 'Web\PostController@tag')->name('fenton.tag');
+        Route::get('/thomas-fenton/noticias/{url}', 'Web\PostController@show')->name('posts.show');
 
 
         Route::view('/rio-seco/desarrollo-organizacional/historia', 'web.rioseco.history')->name('rioseco.history');

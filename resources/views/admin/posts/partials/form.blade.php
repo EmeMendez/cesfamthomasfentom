@@ -32,6 +32,15 @@
       </div>
     </div> 
 
+
+    <div class="form-group row">
+      <label for="excerpt" class="col-sm-2 col-form-label">Fecha</label>
+      <div class="col-sm-10">
+      <input value="{{old('created_at',$post->created_at)}}" class="col-md-3" name="created_at" id="datepicker" />
+      </div>
+    </div>
+
+
     <div class="form-group row">
       <label for="excerpt" class="col-sm-2 col-form-label">Extracto</label>
       <div class="col-sm-10">

@@ -14,7 +14,7 @@ class Post extends Model
 
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'user_id','category_id','name','excerpt','body','image'
+        'user_id','category_id','name','excerpt','body','image','created_at'
     ];
 
     //relations 

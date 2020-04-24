@@ -57,6 +57,7 @@ class PostController extends Controller
     public function create()
     {
         $post           = new Post;
+        $post->created_at = date('Y-m-d');
         $post->category = new Category;
         $categories     = Category::orderBy('name','ASC')->get();
         $tags           = Tag::orderBy('name','ASC')->get();    
@@ -83,6 +84,7 @@ class PostController extends Controller
         $post->excerpt = $request->get('excerpt');
         $post->url = Str::slug($request->get('name'));
         $post->body = $request->get('body');
+        $post->created_at = $request->get('created_at');
         $post->save();
 
         $post->tags = $request->input('tags'); 

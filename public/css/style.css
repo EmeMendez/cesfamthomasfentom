@@ -191,4 +191,18 @@ background-color: #0b2647;
         height: 130px;
         object-fit: cover;
     }
+
+    .link-effect{
+        /* transition: 0.6s ease; */
+        text-decoration: none;
+        border-top:4px solid #f8f9fa;
+        border-bottom: 4px solid  #f8f9fa;
+
+
+    }
+    .link-effect:hover{
+        transition: 0.8s ease;
+        border-top:4px solid #3d464d;
+        border-bottom: 4px solid  #3d464d;
+    }
     

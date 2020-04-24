@@ -145,6 +145,9 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script  src="/ckeditor/ckeditor.js"></script>
+<script src="/js/calendar.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 <script>
  try{
   if(document.getElementById('body').value!=null) {
@@ -154,5 +157,12 @@
 }catch(err){
     //can't find element with id "body"
 }
+</script>
+
+<script>
+$('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd',
+    });
 </script>
 

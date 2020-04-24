@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function home(){
 
-        $posts = Post::orderBy('created_at','DESC')->take(3)->get();
+        $posts = Post::orderBy('created_at','DESC')->where('status','PUBLISHED')->take(3)->get();
         $banners = Banner::get();
         return view('web.home',compact('posts','banners'));
     }

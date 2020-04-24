@@ -1,5 +1,5 @@
 @foreach($posts as $post)
-    <div class="row py-3">
+    <div class="row py-3 wow fadeIn">
         <div class="col-12 col-md-4 objetfitcover">
             <img src="/{{$post->image}}" alt="">
         </div>
@@ -19,7 +19,7 @@
                     <a href="{{route('web.fenton.tag',$tag->url)}}"><span class="bg-secondary text-white mr-2">{{$tag->name}} </span></a>
                 @endforeach
                 <br>
-                <p class="mt-2 font-weight-bold"><a href="#" class=" text-primary">Leer más...</a></p>
+            <p class="mt-2 font-weight-bold"><a href="{{route('web.posts.show',$post->url)}}" class=" text-primary">Leer más...</a></p>
         </div>
     </div>
 @endforeach

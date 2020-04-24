@@ -13,8 +13,13 @@ class PostController extends Controller
 
     public function news(Request $request){
         $search = $request->get('search');
-        $posts = Post::name($search)->orderBy('created_at','DESC')->paginate(7);
+        $posts = Post::name($search)->where('status','PUBLISHED')->orderBy('created_at','DESC')->paginate(7);
         return view('web.fenton.news',compact('posts','search'));
+    }
+
+    public function show($url){
+        $post = Post::where('url',$url)->where('status','PUBLISHED')->firstOrFail();
+        return view('web.posts.show',compact('post'));
     }
 
     public function category($url){
