@@ -59,10 +59,9 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->get('name');
         $category->url = Str::slug($request->get('name'));
-        $category->description = $request->get('description');
         $category->save();
         return redirect()->route('admin.categories.index')
-        ->with('info','Categoría "'. $category->name .'" creada con éxito');        
+        ->with('info','Categoría <b>'. $category->name .'</b> creada con éxito');        
 
     }
 

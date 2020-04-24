@@ -26,7 +26,7 @@ class PostStoreRequest extends FormRequest
         return [
             'name'          => ['required','unique:posts'],
             'image'         => ['required','mimes:jpg,jpeg,png'],
-            'excerpt'       => 'required',
+            'excerpt'       => 'required|max:130',
             'body'          => 'required',
             'category'      => 'required|integer',
             'body'          => 'required',

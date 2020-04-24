@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <div class="col-12">
                         <p><b>Nombre :</b> {{$category->name}}</p> 
-                        <p><b>Descripción :</b> {{$category->description}}</p>           
                         <p><b>URL : </b> {{$category->url}}</p>                  
                     </div>               
                 </div>

@@ -26,7 +26,7 @@ class PostUpdateRequest extends FormRequest
     {
         return [
             'name'          => ['required','unique:posts,name,' . $this->post],
-            'excerpt'       => 'required',
+            'excerpt'       => 'required|max:130',
             'body'          => 'required',
             'category'      => ['required','integer',new ifDeletedAt('category')],
             'tags'          => ['required','array',new ifDeletedAt('tag')],

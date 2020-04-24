@@ -9,7 +9,7 @@ class Category extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = ['name','description'];
+    protected $fillable = ['name'];
 
     public function posts(){
         return $this->hasToMany(Post::class)->withTrashed();// a category has many posts

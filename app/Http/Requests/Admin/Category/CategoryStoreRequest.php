@@ -26,7 +26,6 @@ class CategoryStoreRequest extends FormRequest
     {
         return [
             'name' => ['required','unique:categories,name'],
-            'description' => 'required',
         ];
     }
 }

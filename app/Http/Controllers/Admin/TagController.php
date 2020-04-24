@@ -61,7 +61,7 @@ class TagController extends Controller
         $tag->url = Str::slug($request->get('name'));
         $tag->save();
         return redirect()->route('admin.tags.index')
-               ->with('info','Etiqueta "'. $tag->name .'" creada con éxito');
+               ->with('info','Etiqueta <b>'. $tag->name .'</b> creada con éxito');
     }
 
     /**

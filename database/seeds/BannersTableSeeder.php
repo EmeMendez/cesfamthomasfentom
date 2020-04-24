@@ -14,7 +14,7 @@ class BannersTableSeeder extends Seeder
         Banner::create(
             ['title' => 'Primer banner y su titulo',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas hic placeat modi illum suscipit fuga amet quasi? Fugiat possimus quae culpa tempore itaque repellat aperiam nostrum sunt distinctio asperiores inventore eum accusamus volup.',
-            'path' => 'images/banners/banner1.jpg',
+            'path' => 'images/banners/banner1.png',
             'link' => 'http://www.google.com',
             'created_at' => now(),
             'updated_at' => now()
@@ -22,7 +22,7 @@ class BannersTableSeeder extends Seeder
         Banner::create(
             ['title' => 'SEGUNDO banner y su titulo',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas hic placeat modi illum suscipit fuga amet quasi? Fugiat possimus quae culpa tempore itaque repellat aperiam nostrum sunt distinctio asperiores inventore eum accusamus volup.',
-            'path' => 'images/banners/banner2.jpg',
+            'path' => 'images/banners/banner2.png',
             'link' => 'http://www.google.com',
             'created_at' => now(),
             'updated_at' => now()
@@ -30,7 +30,7 @@ class BannersTableSeeder extends Seeder
         Banner::create(
             ['title' => 'tERCER banner y su titulo',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptas hic placeat modi illum suscipit fuga amet quasi? Fugiat possimus quae culpa tempore itaque repellat aperiam nostrum sunt distinctio asperiores inventore eum accusamus volup.',
-            'path' => 'images/banners/banner3.jpg',
+            'path' => 'images/banners/banner3.png',
             'link' => 'http://www.google.com',
             'created_at' => now(),
             'updated_at' => now()

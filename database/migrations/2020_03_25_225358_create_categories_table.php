@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('url')->unique();
-            $table->mediumText('description')->nulleable();
             $table->timestamps();
             $table->softDeletes();
            
