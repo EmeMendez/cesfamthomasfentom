@@ -8,13 +8,17 @@
                 </div>
         </div>
        <div class="row mt-5">
-        <div class="col-9">
-                <h4 class="text-dark"><b> Limites y Ubicación Geográfica</b></h4>
+               
+        <div class="col-12 col-md-9">
+                <h4 class="text-dark text-md-left text-center"><b> Limites y Ubicación Geográfica</b></h4>
+                <div class="col-12 d-md-none d-block text-center">
+                        <img class="w-100 col-6" src="/images/web/location.png" alt="">
+                </div> 
                 <p class="mt-3" style="font-size:15px">
                         El Centro de Salud Familiar “Dr. Thomas Fenton”, se encuentra ubicado en la calle Vicente Pérez Barría N°0762, sector Club Hípico, comuna de Punta Arenas. Provincia de Magallanes.
                 </p>
         </div>
-        <div class="col-3">
+        <div class="col-3 d-md-block d-none">
                 <img class="w-100" src="/images/web/location.png" alt="">
         </div>        
        </div>

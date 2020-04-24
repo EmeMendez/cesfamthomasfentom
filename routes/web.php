@@ -54,10 +54,10 @@ Route::name('web.')->group(function () {
         Route::view('/programas/salud-dental', 'web.programs.dental')->name('programs.dental');
         Route::view('/programas/salud-cardiovascular', 'web.programs.cardiovascular')->name('programs.cardiovascular');
 
-        Route::view('/temas-de-salud/promotion', 'web.healthissues.promotion')->name('healthissues.promotion');
-        Route::view('/temas-de-salud/mais', 'web.healthissues.mais')->name('healthissues.mais');
-        Route::view('/temas-de-salud/vacunacion', 'web.healthissues.vaccination')->name('healthissues.vaccination');
-        Route::view('/temas-de-salud/tbc', 'web.healthissues.tbc')->name('healthissues.tbc');
+        // Route::view('/temas-de-salud/promotion', 'web.healthissues.promotion')->name('healthissues.promotion');
+        // Route::view('/temas-de-salud/mais', 'web.healthissues.mais')->name('healthissues.mais');
+        // Route::view('/temas-de-salud/vacunacion', 'web.healthissues.vaccination')->name('healthissues.vaccination');
+        // Route::view('/temas-de-salud/tbc', 'web.healthissues.tbc')->name('healthissues.tbc');
 
         Route::view('/calidad', 'web.quality')->name('quality');
         Route::view('/covid-19', 'web.covid')->name('covid');
