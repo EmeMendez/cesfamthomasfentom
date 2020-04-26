@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light container px-md-0 px-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container px-md-4 px-3 shadow">
   <a class="navbar-brand d-md-none d-block" href="#">Thomas Fenton</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,6 +8,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
+
+      
       <li class="nav-item {{setActiveLink('web.home')}}">
       <a class="nav-link {{setActiveSubLink('web.home')}} pl-2 link-effect" href="{{route('web.home')}}">
         <svg class="bi bi-house-fill" width="1.6em" height="1.6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

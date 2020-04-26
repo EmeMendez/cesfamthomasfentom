@@ -92,7 +92,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $roles          = Role::get();
         $permissions    = Permission::get();
         return view('admin.users.edit',compact('user','roles','permissions'));

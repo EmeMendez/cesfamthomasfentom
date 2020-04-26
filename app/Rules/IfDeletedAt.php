@@ -39,18 +39,20 @@ class IfDeletedAt implements Rule
         $category = Category::withTrashed()->find($value);        
         return  $category->deleted_at == null ;
     }
-    public function tags($array){
-        foreach($array as $tag){
-            $tag = Tag::withTrashed()->find($tag);
-            if($tag->deleted_at == null){
-                return true;
-            break;
-            }
-            else{
+    public function tags($value){
+        $condition = true;
+        foreach($value as $index  => $tag){
+            $object = Tag::withTrashed()->find($tag);
+            if($object->deleted_at != null){
                 return false;
             }
         }
-    }
+        return $condition;
+  
+
+        }
+
+    
     /**
      * Get the validation error message.
      *

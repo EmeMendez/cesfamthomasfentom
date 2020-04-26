@@ -205,4 +205,38 @@ background-color: #0b2647;
         border-top:4px solid #3d464d;
         border-bottom: 4px solid  #3d464d;
     }
+
+    .zoom-effect{
+        transition: transform .2s; /* Animation */
+
+    }
+    .zoom-effect:hover{
+        transform: scale(1.5);
+
+    }
+    .zoom-effect-soft{
+        transition: transform .2s; /* Animation */
+
+    }
+    .zoom-effect-soft:hover{
+        transform: scale(1.05);
+
+    }
+    .images-post{
+        height: 100px;
+    }
+
+    .objetfitcover .gallery{
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) { 
+        .images-post{
+            height: 65px;
+        }
+     }
+
+ 
     

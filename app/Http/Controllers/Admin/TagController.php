@@ -72,7 +72,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $tag = Tag::find($id);
+        $tag = Tag::withTrashed()->find($id);
         return view('admin.tags.show',compact('tag'));
     }
 
@@ -84,7 +84,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::find($id);
+        $tag = Tag::findOrFail($id);
         return view('admin.tags.edit',compact('tag'));
     }
 
@@ -114,7 +114,7 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
         Tag::find($id)->delete();
-        return back()->with('info','La etiqueta "'.$tag->name. '" ha sido eliminada con éxito');
+        return back()->with('info','La etiqueta <b>'.$tag->name. '</b> ha sido eliminada con éxito');
 
     }
 

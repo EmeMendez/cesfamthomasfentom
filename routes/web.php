@@ -2,25 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('web.home');
-// });
-
-
-// Route::get('/covid-19','Web\HomeController@index')->name('web.home.index');
-
-
+//=====================================================================
+//              WEB ROUTES
+//=====================================================================
 
 Route::name('web.')->group(function () {
 
@@ -69,13 +53,11 @@ Route::name('web.')->group(function () {
 });
 
 
-
+//=====================================================================
+//              ADMIN ROUTES
+//=====================================================================
 
 // App::setlocale('es');
-
-//admin routes
-
-
 
 Route::prefix('admin')->group(function(){
     Route::get('/',function(){
@@ -111,12 +93,6 @@ Route::middleware(['auth','verified'])->group(function () {
     });
 });
 
-
-
-// Route::get('/post/{url}','PostController@show')->name('posts.show');
-
-// Route::get('post/categoria/{url}','PostController@category')->name('posts.category');
-// Route::get('post/etiqueta/{url}','PostController@tag')->name('posts.tag');
 
 
 
