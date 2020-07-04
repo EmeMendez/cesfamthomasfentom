@@ -28,7 +28,7 @@ class PostStoreRequest extends FormRequest
             'image'         => ['required','mimes:jpg,jpeg,png'],
             'excerpt'       => 'required|max:130',
             'body'          => 'required',
-            'category'      => 'required|integer',
+            'category_id'   => 'required|integer',
             'body'          => 'required',
             'status'        => 'required|in:DRAFT,PUBLISHED,APPLY_FOR_PUBLISH'
 

@@ -10,5 +10,7 @@
             </div>
             @include('web.posts.partials.card')
         </div>
+        
+        <script src="https://unpkg.com/@johmun/vue-tags-input/dist/vue-tags-input.js"></script>
 @endsection
 

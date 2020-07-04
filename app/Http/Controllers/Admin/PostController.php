@@ -14,8 +14,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
+    private $post;
 
-    public function __construct(){
+    public function __construct(Post $post){
+        $this->post = $post;
         $this->middleware('permission:admin.posts.index')->only('index');
         $this->middleware('permission:admin.posts.show')->only('show');
         $this->middleware('permission:admin.posts.create')->only('create','store');
@@ -73,33 +75,16 @@ class PostController extends Controller
      */
     public function store(PostStoreRequest $request)
     {
-        $post = new Post;
-        $post->user_id = auth()->user()->id;
-        if($request->hasFile('image')){
-            $post->image = Storage::disk('public')->put('images/post_main_images',$request->file('image'));
-        }      
-        $post->name = $request->get('name');
-        $post->status = $request->get('status');
-        $post->category_id = $request->get('category');
-        $post->excerpt = $request->get('excerpt');
-        $post->url = Str::slug($request->get('name'));
-        $post->body = $request->get('body');
-        $post->created_at = $request->get('created_at');
-        $post->save();
+        $this->post  =  Post::create($request->only('category_id','name','excerpt','body','created_at','status') + 
+                        [
+                            'user_id' => auth()->user()->id,
+                            'url' => Str::slug($request->name),
+                            'image' => $this->post->handleUploadImage($request->file('image')),
+                        ]);
 
-        $post->tags = $request->input('tags'); 
-        $post->tags()->sync($post->tags);
-
-        if($request->images){
-            foreach($request->images as $path) {
-                $image = new Image;
-                $image->path = $path->store('images/galery');
-                $post->images()->save($image);                
-            }            
-        }
-        return redirect()->route('admin.posts.index')
-               ->with('info','El post <b>'. $post->name .'</b> ha sido creado con éxito');        
-
+        $this->post->tags()->sync($request->tags);
+        $this->post->handleUploadImages($this->post, $request->images);
+        return redirect()->route('admin.posts.index')->with('info','El post <b>'. $this->post->name .'</b> ha sido creado con éxito');        
     }
 
     /**

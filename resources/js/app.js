@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 var image   = Vue.component('image-post-component', require('./components/post/ImagePostComponent.vue').default);
 var images  = Vue.component('images-post-component', require('./components/post/ImagesPostComponent.vue').default);
 Vue.component('image-banner-component', require('./components/banner/ImageBannerComponent.vue').default);
+Vue.component('tag-component', require('./components/TagComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

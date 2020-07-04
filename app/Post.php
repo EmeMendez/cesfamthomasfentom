@@ -3,6 +3,8 @@
 namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
 use App\Tag;
 use App\Image;
 use App\User;
@@ -13,9 +15,7 @@ class Post extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = [
-        'user_id','category_id','name','excerpt','body','image','created_at'
-    ];
+    protected $guarded = [];
 
     //relations 
     public function user(){
@@ -57,6 +57,27 @@ class Post extends Model
     public function scopeAdmin($query){
         if(!auth()->user()->hasRole('admin'))
             return $query->where('user_id',auth()->user()->id);
+    }
+
+
+    public function handleUploadImage($image)
+    {
+        if (!is_null($image)) {
+            $image = Storage::disk('public')->put('images/post_main_images',$image);
+        }
+        return $image; 
+    }
+
+    public function handleUploadImages(Post $post, $images)
+    {
+        $post_image = array();
+        if($images){
+            foreach($images as $path) {
+                $image = new Image;
+                $image->path = $path->store('images/galery');
+                $post->images()->save($image);                
+            }            
+        }
     }
 
 }

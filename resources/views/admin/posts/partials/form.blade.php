@@ -13,7 +13,7 @@
     <div class="form-group row">
       <label for="category" class="col-sm-2 col-form-label">Categoría</label>
       <div class="col-sm-10">
-        <select name="category" class="form-control" id="category">
+        <select name="category_id" class="form-control" id="category">
           <option disabled  selected value="">-- Seleccione una categoría --</option>
           @foreach ($categories as $category)
               <option
@@ -22,7 +22,7 @@
                   @endif
                   @if($post->category && $post->category->id == $category->id) 
                       selected 
-                  @elseif(old('category',$post->category_id) == $category->id) 
+                  @elseif(old('category_id',$post->category_id) == $category->id) 
                       selected 
                   @endif 
                   value="{{$category->id}}">{{$category->name}}

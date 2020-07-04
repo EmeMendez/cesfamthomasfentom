@@ -155,7 +155,7 @@ return [
         'age'                   => 'edad',
         'body'                  => 'contenido',
         'city'                  => 'ciudad',
-        'category'              => 'categoría',
+        'category_id'           => 'categoría',
         'content'               => 'contenido',
         'country'               => 'país',
         'date'                  => 'fecha',
